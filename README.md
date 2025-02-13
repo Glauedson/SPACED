@@ -1,8 +1,8 @@
-# <img src="src/assets/image/Logo1x1.png" width=22 > SPACED
+# <img src="src/assets/icons/logo1x1.png" width="23px"> SPACED
 
 <div align="center" style="padding: 20px 0" >
 
-<img src= "src/assets/image/SPACED-02.png" width=290px>
+<img src= "src/assets/icons/SPACED-02.png" width=290px>
 </div>
 
 Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi um trabalho da faculdade, apenas uma ideia que eu tive depois que encontrei as **APIs gratuitas** da NASA, após analisar todas os dados tive essa vontade de desenvolver este site.
@@ -11,7 +11,7 @@ Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi u
 > 
 > Todas as **APIs** da **NASA** são de uso livre, mas primeiro você tem que fazer login com seu **EMAIL** no site para receber sua **APIKEY**.
 
-## <img src="src/assets/image/Logo1x1.png" width=19 > Topicos
+## <img src="src/assets/icons/logo1x1.png" width=19 > Topicos
 
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Screenshots Do Projeto](#screenshots-do-projeto)
@@ -20,19 +20,25 @@ Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi u
 - [Licença](#licença)
 - [Contato](#contato)
 
-## <img src="src/assets/image/Logo1x1.png" width=19 > Descrição do Projeto
+## <img src="src/assets/icons/logo1x1.png" width=19 > Descrição do Projeto
 
 Assim que todas funcionalidades do projeto forem definidas, irei atualizar a descrição do projeto
 
-## <img src="src/assets/image/Logo1x1.png" width=19 > Screenshots do Projeto
+## <img src="src/assets/icons/logo1x1.png" width=19 > Screenshots do Projeto
 
 🚧 Logo será atualizado
 
-## <img src="src/assets/image/Logo1x1.png" width=19 > Tecnologias Utilizadas
+## <img src="src/assets/icons/logo1x1.png" width=19 > Tecnologias Utilizadas
 
-🚧 Logo será atualizado
+- **Frontend**:
 
-## <img src="src/assets/image/Logo1x1.png" width=19 > Endpoints das APIs
+  [![My Skills](https://skillicons.dev/icons?i=react,css)](https://skillicons.dev)
+
+- **APIs**:
+  
+  - APOD - **NASA**
+
+## <img src="src/assets/icons/logo1x1.png" width=19 > Endpoints das APIs
 
 ### 1. APOD (  Astronomy Picture of the Day )
 

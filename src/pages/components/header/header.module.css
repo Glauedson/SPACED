@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
+
+.header{
+    background-color: #0D0F14;
+    color: white;
+    width: 100vw;
+    box-shadow: 0px 10px 11px 0px rgba(0, 0, 0, 0.452);
+    scale: 1;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.barras{
+    font-size: clamp(1.3rem, 1.8vw, 2rem); 
+    padding-right: 35px;
+}
+
+.logo{
+    width: 10vw;
+    min-width: 100px;
+    aspect-ratio: 4.9/1;
+    padding: 25px 14px;
+}
+
+.subHeader{
+    width: 100vw;
+    color: rgba(255, 255, 255, 0.671);
+    background: linear-gradient(90deg, #5200FD, #8E02D4, #5200FD);
+    background-size: 300% 100%;
+    animation: gradientMove 3s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+.subHeader > p{
+    text-align: center;
+    margin: 0;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: clamp(0.5rem, 1.8vw, 0.8rem); 
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
