@@ -32,7 +32,7 @@ Assim que todas funcionalidades do projeto forem definidas, irei atualizar a des
 
 - **Frontend**:
 
-  [![My Skills](https://skillicons.dev/icons?i=react,css)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=react,vite,css)](https://skillicons.dev)
 
 - **APIs**:
   
