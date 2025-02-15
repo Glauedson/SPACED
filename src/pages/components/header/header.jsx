@@ -42,10 +42,7 @@ function Header() {
                   HOME
                   <FontAwesomeIcon 
                     icon={faHouse}
-                    style={{ color: "#6e6d6d8e",
-                              paddingLeft:"10px",
-                              fontSize: "20px"
-                    }}/>
+                    className={styles.icons}/>
                 </a></li>
 
                 <hr />
@@ -55,30 +52,21 @@ function Header() {
                   APOD
                   <FontAwesomeIcon 
                     icon={faImage}
-                    style={{ color: "#6e6d6d8e",
-                              paddingLeft:"10px",
-                              fontSize: "20px"
-                    }}/>
+                    className={styles.icons}/>
                 </a></li>
 
                 <li><a href="#">
                   SPACEX
                   <FontAwesomeIcon 
                     icon={faRocket}
-                    style={{ color: "#6e6d6d8e",
-                              paddingLeft:"10px",
-                              fontSize: "20px"
-                    }}/>
+                    className={styles.icons}/>
                 </a></li>
 
                 <li><a href="#">
                   METEOROS
                   <FontAwesomeIcon 
                     icon={faMeteor}
-                    style={{ color: "#6e6d6d8e",
-                              paddingLeft:"10px",
-                              fontSize: "20px"
-                    }}/>
+                    className={styles.icons}/>
                 </a></li>
 
               </ul>

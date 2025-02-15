@@ -82,20 +82,20 @@
 }
 
 .logo1x1{
-    width: 50px;
+    width: clamp(35px, 3vw, 50px);
 }
 
 .closeBtn {
     background: rgba(255, 255, 255, 0.055);
-    width: 40px;
-    height: 40px;
+    width: clamp(29px, 3vw, 40px);
+    height: clamp(29px, 3vw, 40px);
     justify-content: center;
     align-items: center;
     display: flex;
     border-radius: 10px;
     border: none;
     color: rgb(148, 148, 148);
-    font-size: 26px;
+    font-size: clamp(17px, 3vw, 26px);
     cursor: pointer;
 }
 
@@ -116,7 +116,8 @@
 .sidebar nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: clamp(13px, 3vw, 19px);
+    align-items: center;
     display: block;
     padding: 10px;
     border-radius: 5px;
@@ -141,7 +142,13 @@ hr {
     justify-content: end;
     margin-right: 35px;
     color: #6e6d6d8e;
-    font-size: 14px;
+    font-size: clamp(10px, 3vw, 14px);
+}
+
+.sidebar .icons{
+    color: #5200FD;
+    padding-left: 10px;
+    font-size: clamp(19px, 3vw, 20px);
 }
 
 .overlay {
@@ -179,6 +186,7 @@ hr {
 
 .eddieTexto > p {
     font-size: 10px;
+    color: rgb(160, 156, 156);
 }
 
 .rodapeSidebar{
@@ -195,5 +203,5 @@ hr {
     bottom: -13px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: clamp(10px, 3vw, 15px);
 }
