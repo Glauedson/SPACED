@@ -1,15 +1,22 @@
-import Header from '../components/header/header'
-import './styles.css'
+import { motion } from "framer-motion";
+import Header from '../components/header/header';
+import './styles.css';
 
 function Home() {
   return (
     <>
       <Header />
       
-      <div className="luaConteiner">
+      <motion.div 
+        className="luaConteiner"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <div className="luaDescricao">
           <h1>LUA</h1>
-          <p>Gosta de admirar a lua? Eu tambem !<br/> 
+          <p>Gosta de admirar a lua? Eu também!<br/> 
           Confira as fases da lua para toda a semana e planeje seus dias com base no ciclo lunar. Veja a influência da lua em cada fase e acompanhe suas mudanças ao longo dos próximos dias!</p>
 
           <a href="#">
@@ -29,10 +36,9 @@ function Home() {
             <p>São Paulo</p>
           </div>
         </div>
-      </div>
-      
+      </motion.div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
