@@ -2,7 +2,6 @@
 
 body {
   overflow: hidden;
-  font-family: Arial, sans-serif;
   background-color: #000000;
   display: flex;
   align-items: center;
@@ -12,10 +11,158 @@ body {
   margin: 0;
 }
 
+*{
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  border: 0;
+  margin: 0;
+}
+
 #root{
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    width: 100vw;
 }
 
+.luaConteiner{
+  margin-top: 35px;
+  max-width: 1500px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.luaDescricao{
+  width: 40%;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.luaDescricao > p {
+  font-size: clamp( 3px, 2vw, 20px);
+  color: #ffffff;
+}
+
+.luaDescricao > h1 {
+  font-size: clamp(30px, 6vw, 128px);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.luaDescricao > a {
+  text-decoration: none;
+  background-color: #D9D9D9;
+  color: #1E1D1D;
+  padding: 15px 0px 15px 0px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.luaDescricaoTopicos{
+  display: flex;
+  gap: 15px;
+}
+
+.luaDescricaoTopicos > p{
+  width: 350px;
+  aspect-ratio: 4/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #5200FD;
+}
+
+.luaDescricaoTopicos p:last-child{
+  background-color: #8E02D4;
+}
+
+.luaBanner{
+  border-radius: 18px 18px 0px 0px;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+}
+
+.luaBannerTopo{
+  background-color: #0D0F14;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.534);
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 50vw, 700px);
+  aspect-ratio: 1.6/1;
+  border-radius: 15px;
+}
+
+.luaBannerRodape{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E1D1D;
+}
+
+
+/* Tablet */
+@media (max-width: 1060px) {
+  
+  .luaConteiner{
+    flex-direction: column;
+    width: 90%;
+    background-color: rgb(252, 252, 252);
+    align-items: center;
+    
+  }
+
+  .luaBannerTopo{
+    width: 100%;
+    aspect-ratio: 2.5/1;
+    height: auto;
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0px -6px 10px 0px rgba(0, 0, 0, 0.514);
+  }
+
+  .luaDescricao{
+    width: 95%;
+    gap: 15px;
+    height: auto;
+  }
+
+  .luaDescricao > h1 {
+    color: #0D0F14;
+    margin-top: 15px;
+  }
+
+  .luaDescricao > P {
+    font-size: 15px;
+    color: #0D0F14;
+  }
+
+  .luaDescricao > a{
+    width: 100%;
+    height: auto;
+    background-color: #0D0F14;
+    color: white;
+  }
+
+  .luaDescricaoTopicos{
+    display: none;
+  }
+
+  .luaBanner{
+    width: 100%;
+  }
+
+  .luaBannerRodape{
+    display: none;
+  }
+
+
+  
+
+}

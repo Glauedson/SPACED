@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
 
+*{
+  font-family: "Poppins", serif;
+  font-weight: 400;
+}
+
 .header{
     background-color: #0D0F14;
     color: white;
@@ -13,7 +18,7 @@
 
 .barras{
     font-size: clamp(1.3rem, 1.8vw, 2rem); 
-    padding-right: 35px;
+    margin-right: 35px;
     cursor: pointer;
 }
 

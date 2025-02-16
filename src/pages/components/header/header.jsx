@@ -3,7 +3,8 @@ import styles from "./header.module.css"
 import logo from "../../../assets/icons/SPACED-02.png"
 import logo1x1 from "../../../assets/icons/logo1x1.png"
 import { FontAwesomeIcon }  from "@fortawesome/react-fontawesome"
-import { faBars, faTimes, faHouse, faImage, faRocket, faMeteor, faCircleNotch } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faTimes, faHouse, faImage, faRocket, faMeteor, faCircleNotch, faMoon } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,22 +39,29 @@ function Header() {
 
             <nav>
               <ul>
-                <li><a href="#">
+                <li><Link to="/SPACED/">
                   HOME
                   <FontAwesomeIcon 
                     icon={faHouse}
                     className={styles.icons}/>
-                </a></li>
+                </Link></li>
 
                 <hr />
                 <p>TÓPICOS</p>
 
-                <li><a href="#">
+                <li><Link to="#">
+                  LUA
+                  <FontAwesomeIcon 
+                    icon={faMoon}
+                    className={styles.icons}/>
+                </Link></li>
+
+                <li><Link to="#">
                   APOD
                   <FontAwesomeIcon 
                     icon={faImage}
                     className={styles.icons}/>
-                </a></li>
+                </Link></li>
 
                 <li><a href="#">
                   SPACEX
