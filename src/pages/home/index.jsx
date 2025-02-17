@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import Header from '../components/header/header'
 import './styles.css'
+import LuaAPI from '../components/LuaAPI'
 
 function Home() {
   return (
@@ -30,7 +31,15 @@ function Home() {
         </div>
         <div className="luaBanner">
           <div className="luaBannerTopo">
-            Lua
+            <div className="lua">
+              <div className="mapaLua">
+                
+              </div>
+            </div>
+            <div className="infoLua">
+              <p>FASE ATUAL DA LUA</p>
+              <LuaAPI />
+            </div>
           </div>
           <div className="luaBannerRodape">
             <p>São Paulo</p>

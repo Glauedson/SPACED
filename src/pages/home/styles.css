@@ -93,10 +93,56 @@ body {
   background-color: #0D0F14;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.534);
   display: flex;
-  flex-direction: column;
   width: clamp(300px, 50vw, 700px);
   aspect-ratio: 1.6/1;
   border-radius: 15px;
+}
+
+.lua{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+@keyframes girarLua {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.mapaLua {
+  background-image: url(../../assets/images/mapa-da-lua.jpg);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  animation: girarLua 20s linear infinite;
+  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.349);
+}
+
+.infoLua{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(190, 187, 187);
+  font-size: clamp(10px, 1.9vw, 20px);
+  line-height: 1;
+  text-align: center;
+  word-break: break-word;
+}
+
+.infoLua > p:last-child{
+  font-size: clamp(40px, 5vw, 40px);
+  font-weight: bolder;
+  color: white;
 }
 
 .luaBannerRodape{
@@ -116,31 +162,36 @@ body {
     width: 90%;
     background-color: rgb(252, 252, 252);
     align-items: center;
-    
+    border-radius: 8px 8px 0px 0px;
   }
 
   .luaBannerTopo{
     width: 100%;
+    position: relative;
+    bottom: -14px;
     aspect-ratio: 2.5/1;
     height: auto;
-    border-radius: 15px 15px 0px 0px;
-    box-shadow: 0px -6px 10px 0px rgba(0, 0, 0, 0.514);
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px -6px 10px 0px rgba(0, 0, 0, 0.432);
   }
 
   .luaDescricao{
     width: 95%;
     gap: 15px;
     height: auto;
+    
   }
 
   .luaDescricao > h1 {
-    color: #0D0F14;
+    color: #26272b;
     margin-top: 15px;
+    
   }
 
   .luaDescricao > P {
-    font-size: 15px;
+    font-size: clamp(13px, 2vw, 17px);
     color: #0D0F14;
+    
   }
 
   .luaDescricao > a{
@@ -148,10 +199,13 @@ body {
     height: auto;
     background-color: #0D0F14;
     color: white;
+    font-size: clamp(13px, 2vw, 17px);
+    margin-top: 9px;
   }
 
   .luaDescricaoTopicos{
     display: none;
+    
   }
 
   .luaBanner{
@@ -162,7 +216,16 @@ body {
     display: none;
   }
 
+  .lua{
+   padding: 20px;
+  }
 
+  .infoLua{
+    font-size: clamp(10px, 3vw, 30px);
+  }
   
+  .infoLua > p:last-child{
+    font-size: clamp(10px, 5vw, 40px);
+  }
 
 }
