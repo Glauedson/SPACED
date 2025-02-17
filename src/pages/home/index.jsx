@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import Header from '../components/header/header';
-import './styles.css';
+import { motion } from "framer-motion"
+import Header from '../components/header/header'
+import './styles.css'
 
 function Home() {
   return (
@@ -38,7 +38,7 @@ function Home() {
         </div>
       </motion.div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home
