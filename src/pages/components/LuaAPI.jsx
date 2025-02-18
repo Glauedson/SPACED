@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 
 const fasesLua = {
-  NEW: "Lua Nova",
-  WAXING_CRESCENT: "Lua Crescente",
-  FIRST_QUARTER: "Quarto Crescente",
-  WAXING_GIBBOUS: "Gibosa Crescente",
-  FULL: "Lua Cheia",
-  WANING_GIBBOUS: "Gibosa Minguante",
-  LAST_QUARTER: "Quarto Minguante",
-  WANING_CRESCENT: "Lua Minguante"
+  NEW: "LUA NOVA",
+  WAXING_CRESCENT: "LUA CRESCENTE",
+  FIRST_QUARTER: "QUARTO CRESCENTE",
+  WAXING_GIBBOUS: "GIBOSA CRESCENTE",
+  FULL: "LUA CHEIA",
+  WANING_GIBBOUS: "GIBOSA MINGUANTE",
+  LAST_QUARTER: "QUARTO MINGUANTE",
+  WANING_CRESCENT: "LUA MINGUANTE"
 }
 
 const LuaAPI = () => {

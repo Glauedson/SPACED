@@ -21,7 +21,7 @@ function Home() {
           Confira as fases da lua para toda a semana e planeje seus dias com base no ciclo lunar. Veja a influência da lua em cada fase e acompanhe suas mudanças ao longo dos próximos dias!</p>
 
           <a href="#">
-            ACESSAR
+            <p>ACESSAR</p> 
           </a>
 
           <div className="luaDescricaoTopicos">
