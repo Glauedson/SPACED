@@ -18,7 +18,8 @@
 
 .barras{
     font-size: clamp(1.3rem, 1.8vw, 2rem); 
-    margin-right: 35px;
+    margin-right: 25px;
+    padding: 10px;
     cursor: pointer;
 }
 

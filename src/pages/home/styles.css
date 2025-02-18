@@ -28,11 +28,10 @@ body {
 
 .luaConteiner{
   margin-top: 35px;
-  max-width: 1500px;
-  width: 90%;
+  width: clamp( 1000px , 70vw , 1900px );
   display: flex;
   justify-content: space-between;
-  gap: 15px;
+  gap: 25px;
 }
 
 .luaDescricao{
@@ -44,7 +43,7 @@ body {
 }
 
 .luaDescricao > p {
-  font-size: clamp( 3px, 2vw, 20px);
+  font-size: clamp( 15px, 1.4vw, 23px);
   color: #ffffff;
 }
 
@@ -63,38 +62,19 @@ body {
   border-radius: 10px;
 }
 
-.luaDescricaoTopicos{
-  display: flex;
-  gap: 15px;
-}
-
-.luaDescricaoTopicos > p{
-  width: 350px;
-  aspect-ratio: 4/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #5200FD;
-}
-
-.luaDescricaoTopicos p:last-child{
-  background-color: #8E02D4;
-}
-
 .luaBanner{
   border-radius: 18px 18px 0px 0px;
-  background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
-  
 }
 
 .luaBannerTopo{
-  background-color: #0D0F14;
+  background-color: #0d0e11;
+  background-position: center;
+  background-size: cover;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.534);
   display: flex;
-  width: clamp(300px, 50vw, 700px);
+  width: clamp(300px, 50vw, 650px);
   aspect-ratio: 1.6/1;
   border-radius: 15px;
 }
@@ -147,14 +127,6 @@ body {
   color: white;
 }
 
-.luaBannerRodape{
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1E1D1D;
-}
-
 
 /* Tablet */
 @media (max-width: 1060px) {
@@ -164,17 +136,17 @@ body {
     width: 90%;
     background-color: rgb(252, 252, 252);
     align-items: center;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 15px 15px;
   }
 
   .luaBannerTopo{
     width: 100%;
-    position: relative;
-    bottom: -14px;
     aspect-ratio: 2.5/1;
     height: auto;
     border-radius: 15px 15px 15px 15px;
-    box-shadow: 0px -6px 10px 0px rgba(0, 0, 0, 0.432);
+    background:  
+  linear-gradient(rgba(0, 0, 0, 0.897), rgba(8, 8, 8, 0.5)),
+  url('https://www.shutterstock.com/image-vector/space-stars-background-abstract-stardust-600nw-2318734487.jpg');
   }
 
   .luaDescricao{
@@ -205,17 +177,8 @@ body {
     margin-top: 9px;
   }
 
-  .luaDescricaoTopicos{
-    display: none;
-    
-  }
-
   .luaBanner{
     width: 100%;
-  }
-
-  .luaBannerRodape{
-    display: none;
   }
 
   .lua{
@@ -228,6 +191,7 @@ body {
   
   .infoLua > p:last-child{
     font-size: clamp(10px, 5vw, 40px);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.445), 0 0 3px rgba(255, 255, 255, 0.527), 0 0 3px rgba(255, 255, 255, 0.39);
   }
 
 }

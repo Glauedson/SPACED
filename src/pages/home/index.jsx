@@ -23,11 +23,6 @@ function Home() {
           <a href="#">
             <p>ACESSAR</p> 
           </a>
-
-          <div className="luaDescricaoTopicos">
-            <p>LUA</p>
-            <p>ATUALIZAÇÃO DIÁRIA</p>
-          </div>
         </div>
         <div className="luaBanner">
           <div className="luaBannerTopo">
@@ -40,9 +35,6 @@ function Home() {
               <p>FASE ATUAL DA LUA</p>
               <LuaAPI />
             </div>
-          </div>
-          <div className="luaBannerRodape">
-            <p>São Paulo</p>
           </div>
         </div>
       </motion.div>
