@@ -208,7 +208,7 @@ hr {
     width: 112%;
     position: relative;
     left: -20px;
-    bottom: -13px;
+    bottom: -10px;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: clamp(10px, 3vw, 15px);
