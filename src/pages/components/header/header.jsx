@@ -12,7 +12,9 @@ function Header() {
   return (
     <>
       <header className={styles.header}>
+        <Link to="/SPACED/">
         <img className={styles.logo} src={logo} alt="Logo" />
+        </Link>
         <FontAwesomeIcon
           icon={faBars}
           style={{ color: "#fcfcfc" }}
@@ -49,7 +51,7 @@ function Header() {
                 <hr />
                 <p>TÓPICOS</p>
 
-                <li><Link to="#">
+                <li><Link to="/Lua/">
                   LUA
                   <FontAwesomeIcon 
                     icon={faMoon}

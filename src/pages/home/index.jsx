@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import Header from '../components/header/header'
 import './styles.css'
 import LuaAPI from '../components/LuaAPI'
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -20,9 +21,9 @@ function Home() {
           <p>Gosta de admirar a lua? Eu também!<br/> 
           Confira as fases da lua para toda a semana e planeje seus dias com base no ciclo lunar. Veja a influência da lua em cada fase e acompanhe suas mudanças ao longo dos próximos dias!</p>
 
-          <a href="#">
+          <Link to="/Lua/">
             <p>ACESSAR</p> 
-          </a>
+          </Link>
         </div>
         <div className="luaBanner">
           <div className="luaBannerTopo">

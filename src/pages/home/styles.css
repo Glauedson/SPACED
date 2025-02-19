@@ -2,7 +2,7 @@
 
 body {
   overflow: hidden;
-  background-color: #000000;
+  background-color: #0D0F14;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,11 +72,11 @@ body {
   background-color: #0d0e11;
   background-position: center;
   background-size: cover;
-  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.534);
   display: flex;
   width: clamp(300px, 50vw, 650px);
   aspect-ratio: 1.6/1;
   border-radius: 15px;
+  box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.144);
 }
 
 .lua{
