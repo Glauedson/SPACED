@@ -51,7 +51,7 @@ function Header() {
                 <hr />
                 <p>TÓPICOS</p>
 
-                <li><Link to="/Lua/">
+                <li><Link to="/SPACED/LUA/">
                   LUA
                   <FontAwesomeIcon 
                     icon={faMoon}

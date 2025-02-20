@@ -9,7 +9,7 @@ createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/SPACED/" element={<Home />} />
-        <Route path="/Lua/" element={<Lua />} />
+        <Route path="/SPACED/LUA/" element={<Lua />} />
       </Routes>
     </Router>
   </StrictMode>

@@ -45,7 +45,7 @@ main > hr {
   border-radius: 50%;
   aspect-ratio: 1/1;
   animation: girarLua 20s linear infinite;
-  box-shadow: inset 190px -200px 130px 0px rgb(0, 0, 0),
+  box-shadow: inset 190px -1.2vw 40vw 0px rgb(0, 0, 0),
               8px 0px 10px 0px rgba(255, 255, 255, 0.11);
 }
 
@@ -54,10 +54,10 @@ main > hr {
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.6px);
-    -webkit-backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(10.6px);
     text-align: center;
     position: relative;
-    top: -29vh;
+    top: -9px;
     max-width: 1100px;
     width: 97%;
     display: flex;
@@ -65,6 +65,7 @@ main > hr {
     align-items: center;
     border-radius: 15px;
     padding-top: 15px;
+    box-shadow: 0px -7px 62px 13px rgba(0, 0, 0, 0.973);
 }
 
 .caixaDiasSemana{
@@ -123,7 +124,7 @@ main > hr {
 @media (max-width: 1060px) {
 
     .informacoesSemanais{
-        top: -140px;
+        top: -55px;
         border-radius: 5px;
     }
 
