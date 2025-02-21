@@ -1,6 +1,5 @@
 main{
     width: 100vw;
-    height: 100dvh;
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     display: flex;
@@ -29,6 +28,7 @@ main > hr {
     margin-top: 40px;
     max-width: 900px;
     width: 100%;
+    max-height: 80dvh;
     aspect-ratio: 1/1;
     overflow: hidden;
     display: flex;
@@ -57,7 +57,7 @@ main > hr {
     -webkit-backdrop-filter: blur(10.6px);
     text-align: center;
     position: relative;
-    top: -9px;
+    top: -389px;
     max-width: 1100px;
     width: 97%;
     display: flex;
@@ -68,19 +68,41 @@ main > hr {
     box-shadow: 0px -7px 62px 13px rgba(0, 0, 0, 0.973);
 }
 
+.informacoesSemanais > p{
+    font-size: clamp(12px, 3vw, 15px);
+}
+
 .caixaDiasSemana{
     padding: 25px 0px 25px 0px;
     gap: 15px;
     overflow-x: auto;
     width: 97%;
-    height: 300px;
     display: flex;
     margin-bottom: 15px;
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #3d0ade;
+    --sb-size: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.caixaDiasSemana::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+.caixaDiasSemana::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 7px;
+}
+
+.caixaDiasSemana::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 7px;
 }
 
 .caixaDia{
     background-color: white;
-    aspect-ratio: 1/1.2;
+    aspect-ratio:6/9.9;
     min-width: 114px;
     height: 100%;
     border-radius: 15px;
@@ -102,7 +124,7 @@ main > hr {
 .sombra{
     background-color: rgb(169, 175, 175);
     width: 40%;
-    height: 2%;
+    height: 3%;
     border-radius: 50%;
     position: relative;
     top: -12px;
@@ -118,13 +140,18 @@ main > hr {
 
 .faseLua{
     width: 80%;
-    margin-top: 15px;
+    height: 100%;
+    font-size: clamp(14px, 2vw, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-@media (max-width: 1060px) {
+@media (max-width: 730px) {
 
     .informacoesSemanais{
-        top: -55px;
+        top: -10dvh;
         border-radius: 5px;
     }
 
