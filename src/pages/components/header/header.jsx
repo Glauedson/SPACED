@@ -12,7 +12,7 @@ function Header() {
   return (
     <>
       <header className={styles.header}>
-        <Link to="/SPACED/">
+        <Link to="/">
         <img className={styles.logo} src={logo} alt="Logo" />
         </Link>
         <FontAwesomeIcon
@@ -41,7 +41,7 @@ function Header() {
 
             <nav>
               <ul>
-                <li><Link to="/SPACED">
+                <li><Link to="/">
                   HOME
                   <FontAwesomeIcon 
                     icon={faHouse}
