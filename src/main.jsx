@@ -6,7 +6,7 @@ import Lua from "./pages/lua/lua.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router basename="/SPACED">
+    <Router basename="/SPACED/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/LUA" element={<Lua />} />
