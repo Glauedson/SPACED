@@ -41,7 +41,7 @@ function Header() {
 
             <nav>
               <ul>
-                <li><Link to="/SPACED/">
+                <li><Link to="/SPACED">
                   HOME
                   <FontAwesomeIcon 
                     icon={faHouse}
@@ -51,7 +51,7 @@ function Header() {
                 <hr />
                 <p>TÓPICOS</p>
 
-                <li><Link to="/SPACED/LUA/">
+                <li><Link to="/Lua">
                   LUA
                   <FontAwesomeIcon 
                     icon={faMoon}

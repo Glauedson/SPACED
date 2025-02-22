@@ -150,6 +150,11 @@ main > hr {
 
 @media (max-width: 730px) {
 
+    .LuaFundo{
+        box-shadow: inset 30vw -8vw 40vw 0px rgb(0, 0, 0),
+                    8px 0px 10px 0px rgba(255, 255, 255, 0.11);
+      }
+
     .informacoesSemanais{
         top: -10dvh;
         border-radius: 5px;
