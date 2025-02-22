@@ -8,20 +8,20 @@ function Lua() {
     <>
       <Header />
       <main>
-        
-        <h1>LUA</h1>
-        <p> MOON</p>
-        <hr />
 
-        <motion.div
-          className="Lua"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <div className="LuaFundo"></div>
-        </motion.div>
+        <div className="Lua">
+          <motion.div
+          className="TextoLua"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h1>LUA</h1>
+            <p> MOON</p>
+            <hr />
+          </motion.div>
+        </div>
 
         <motion.div
           className="informacoesSemanais"

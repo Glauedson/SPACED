@@ -5,7 +5,6 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 25px;
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -15,46 +14,43 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-main > h1{
+.TextoLua > h1{
     font-size: clamp(30px, 4vw, 60px);
     font-weight: bold;
     line-height: 1;
+    margin-top: 25px;
 }
 
-main > p{
+.TextoLua > p{
     font-size: clamp(13px, 3vw, 19px);
     line-height: 1;
     color: #838383;
 }
 
-main > hr {
+.TextoLua > hr {
     width: clamp(70px, 7vw, 130px);
 }
 
+.TextoLua {
+    text-align: center;
+}
+
 .Lua{
-    margin-top: 40px;
-    max-width: 900px;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
     width: 100%;
     max-height: 80dvh;
     aspect-ratio: 1/1;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: start;
+    background-image: url(../../assets/images/Moon_Surface_and_Earth.jpg);
+    background-size: cover;
+    -webkit-box-shadow: inset 0px 88px 88px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 88px 88px -23px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 84px 61px -26px rgba(0, 0, 0, 0.993),
+    inset 0px -84px 61px -26px rgba(0,0,0,1);
 }
 
-.LuaFundo{
-  background-image: url(../../assets/images/vqytgc3pmazd1.webp);
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  width: 100%;
-  min-width: 500px;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  animation: girarLua 20s linear infinite;
-  box-shadow: inset 190px -1.2vw 40vw 0px rgb(0, 0, 0),
-              8px 0px 10px 0px rgba(255, 255, 255, 0.11);
-}
 
 .informacoesSemanais{
     background: rgba(255, 255, 255, 0.04);
@@ -64,7 +60,7 @@ main > hr {
     -webkit-backdrop-filter: blur(10.6px);
     text-align: center;
     position: relative;
-    top: -389px;
+    top: -10dvw;
     max-width: 1100px;
     width: 97%;
     display: flex;
@@ -156,16 +152,6 @@ main > hr {
 }
 
 @media (max-width: 730px) {
-
-    .LuaFundo{
-        box-shadow: inset 30vw -8vw 40vw 0px rgb(0, 0, 0),
-                    8px 0px 10px 0px rgba(255, 255, 255, 0.11);
-      }
-
-    .informacoesSemanais{
-        top: -10dvh;
-        border-radius: 5px;
-    }
 
     .caixaDiasSemana{
         margin-top: 25px;
