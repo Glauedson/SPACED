@@ -51,7 +51,19 @@ function Lua() {
               </motion.div>
             ))}
           </div>
+
         </motion.div>
+
+        <div className="horariosDia">
+          <div className="nascerSol">
+            Sol
+          </div>
+
+          <div className="nascerLua">
+            Lua
+          </div>
+        </div>
+
       </main>
     </>
   )
