@@ -1,4 +1,5 @@
 import Header from '../components/header/header'
+import HGBrasil from '../components/HgBrasil'
 import './styles.css'
 import { motion } from "framer-motion"
 
@@ -31,26 +32,7 @@ function Lua() {
         >
           <p>Fases da lua durante a semana</p>
 
-          <div className="caixaDiasSemana">
-            {["SEG", "TER", "QUA", "QUI", "SEX"].map((dia, index) => (
-              <motion.div
-                key={dia}
-                className="caixaDia"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <div className="caixaDiaFoto"></div>
-                <div className="sombra"></div>
-                <div className="dia">
-                  <p>{dia}</p>
-                </div>
-                <div className="faseLua">
-                  <p>GIBOSA MINGUANTE</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <HGBrasil />
 
         </motion.div>
 

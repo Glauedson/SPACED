@@ -75,8 +75,8 @@ body::-webkit-scrollbar {
     font-size: clamp(12px, 3vw, 15px);
 }
 
-.caixaDiasSemana{
-    padding: 25px 0px 25px 0px;
+.caixaDiasSemana {
+    padding: 25px 0px;
     gap: 15px;
     overflow-x: auto;
     width: 97%;
@@ -84,9 +84,9 @@ body::-webkit-scrollbar {
     margin-bottom: 15px;
     --sb-track-color: #232E33;
     --sb-thumb-color: #3d0ade;
-    --sb-size: 0px;
-    display: flex;
+    --sb-size: 8px;
     align-items: center;
+    flex-wrap: nowrap; 
 }
 
 .caixaDiasSemana::-webkit-scrollbar {
@@ -107,6 +107,8 @@ body::-webkit-scrollbar {
     background-color: white;
     aspect-ratio:6/9.9;
     min-width: 114px;
+    min-height: 200px;
+    flex-grow: 1;
     height: 100%;
     border-radius: 15px;
     display: flex;
@@ -116,7 +118,9 @@ body::-webkit-scrollbar {
 }
 
 .caixaDiaFoto{
-    background-color: #838383;
+   
+    background-size: cover;
+    background-position: center;
     width: 60%;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -127,7 +131,7 @@ body::-webkit-scrollbar {
 .sombra{
     background-color: rgb(169, 175, 175);
     width: 40%;
-    height: 3%;
+    height: 5%;
     border-radius: 50%;
     position: relative;
     top: -12px;
