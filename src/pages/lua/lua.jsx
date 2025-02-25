@@ -1,5 +1,5 @@
 import Header from '../components/header/header'
-import HGBrasil from '../components/HgBrasil'
+import LuaDias from '../components/LuaDias'
 import './styles.css'
 import { motion } from "framer-motion"
 
@@ -32,7 +32,7 @@ function Lua() {
         >
           <p>Fases da lua durante a semana</p>
 
-          <HGBrasil />
+          <LuaDias />
 
         </motion.div>
 
