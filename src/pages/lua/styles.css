@@ -105,11 +105,10 @@ body::-webkit-scrollbar {
 
 .caixaDia{
     background-color: white;
-    aspect-ratio:6/9.9;
     min-width: 114px;
     min-height: 200px;
-    flex-grow: 1;
-    height: 100%;
+    width: 400px;
+    height: 240px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -141,18 +140,18 @@ body::-webkit-scrollbar {
     background-color: #3E01BA;
     width: 80%;
     border-radius: 50px;
-    padding: 10px 0px 10px 0px;
+    padding: 13px 0px 10px 0px;
     color: #ffffff;
+    font-size: clamp(12px, 3.5vw, 16px );
 }
 
 .faseLua{
     width: 80%;
     height: 100%;
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 18px);
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .horariosDia{
@@ -197,6 +196,7 @@ body::-webkit-scrollbar {
 
     .caixaDia{
         max-width: 140px;
+        max-height: 210px;
     }
 
     .caixaDiaFoto{
@@ -205,6 +205,6 @@ body::-webkit-scrollbar {
     }
 
     .dia{
-        padding: 0;
+        padding: 3px;
     }
 }

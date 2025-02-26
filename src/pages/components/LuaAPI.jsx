@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const fasesLua = {
-  NEW: "LUA NOVA",
+  NEW_MOON: "LUA NOVA",
   WAXING_CRESCENT: "LUA CRESCENTE",
   FIRST_QUARTER: "QUARTO CRESCENTE",
   WAXING_GIBBOUS: "GIBOSA CRESCENTE",
