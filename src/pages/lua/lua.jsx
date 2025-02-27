@@ -1,8 +1,8 @@
 import Header from '../components/header/header'
 import LuaDias from '../components/LuaDias'
+import LuaHorarios from '../components/LuaHorarios'
 import './styles.css'
 import { motion } from "framer-motion"
-
 
 function Lua() {
   return (
@@ -36,15 +36,8 @@ function Lua() {
 
         </motion.div>
 
-        <div className="horariosDia">
-          <div className="nascerSol">
-            Sol
-          </div>
 
-          <div className="nascerLua">
-            Lua
-          </div>
-        </div>
+        <LuaHorarios />
 
       </main>
     </>

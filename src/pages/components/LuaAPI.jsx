@@ -20,7 +20,7 @@ const LuaAPI = () => {
     fetch(`https://api.ipgeolocation.io/astronomy?apiKey=${chaveAPI}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        
 
         if (data && data.moon_phase) {
           setFaseLua(fasesLua[data.moon_phase] || "Desconhecida")
