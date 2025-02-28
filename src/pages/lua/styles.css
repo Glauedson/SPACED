@@ -245,7 +245,7 @@ body::-webkit-scrollbar {
 
 .conteudoAtualizacoes{
     width: 95%;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -313,5 +313,9 @@ body::-webkit-scrollbar {
     .textoInfo{
         width: 95%;
         text-align: center;
+    }
+
+    .caixaDeAtualizacoes{
+        width: 99%;
     }
 }
