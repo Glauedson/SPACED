@@ -230,6 +230,59 @@ body::-webkit-scrollbar {
     font-size: clamp(10px, 2vw, 12px);
 }
 
+.futurasAtualizacoes{
+    background-color: #ffffff;
+    color: #000000;
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 15px 15px 0px 0px;
+    position: relative;
+    top: -9dvw;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.conteudoAtualizacoes{
+    width: 95%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloAtualizacoes{
+    font-weight: bold;
+    font-size: clamp(13px, 1.2vw, 17vw);
+    margin-bottom: 10px;
+}
+
+.caixaDeAtualizacoes{
+    margin-top: 10px;
+    width: 98%;
+    background-color: #D9D9D9;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.tipoDeAtualizacao{
+    background-color: #0D0F14 ;
+    color: #ffffff;
+    padding: 18px 30px 18px 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(12px, 0.7vw, 15vw);
+}
+
+.descricaoDaAtualizacao{
+    background-color: #D9D9D9;
+    padding: 18px 30px 18px 30px;
+    border-radius: 0px 0px 15px 15px;
+    font-size: clamp(12px, 0.7vw, 15vw);
+}
+
 @media (max-width: 730px) {
 
     .caixaDiasSemana{
