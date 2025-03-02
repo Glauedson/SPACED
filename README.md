@@ -67,79 +67,55 @@ Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a 
 
 - **APIs**:
   
-  - HG Weather - **HGBRASIL**
+  - Open-Meteo Weather - **Open-Meteo**
   - APOD - **NASA**
   
 
 ## <img src="src/assets/icons/logo1x1.png" width=19 > Endpoints das APIs
 
-### 1.  HG Weather
+### 1.  Open-Meteo Weather
 
 **Descrição:**
-O HG Weather é uma API que fornece dados de previsão do tempo e condições climáticas atuais para uma cidade.
-API fácil de implementar, com respostas e parâmetros objetivos, com bibliotecas em PHP, Ruby e JavaScript.
+O Open-Meteo Weather é uma API que fornece dados de previsão do tempo e condições climáticas atuais para uma cidade.
+Ela oferece respostas rápidas, suporte a várias coordenadas geográficas e dados meteorológicos precisos sem necessidade de autenticação.
 
 <details>
   <summary> <img src="https://img.icons8.com/color/512/google-translate.png" width="17px"> Click here to translate </summary>
   <blockquote>
-    <p>Description: HG Weather is an API that provides weather forecasts and current weather conditions for a city. It is easy to implement, with clear responses and straightforward parameters, and offers libraries for PHP, Ruby, and JavaScript.</p>
+    <p>Description: Open-Meteo Weather is an API that provides weather forecasts and current weather conditions for a city. It offers fast responses, supports multiple geographical coordinates, and delivers accurate meteorological data without authentication.</p>
   </blockquote>
 </details>
 
-**Endpoint:** ``/weather``
+**Endpoint:** ``/forecast``
 
 **Exemplo de Requisição:**
 ```http
-GET https://api.hgbrasil.com/weather
+GET https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=America/Sao_Paulo  
 ```
 
 **Exemplo de Resposta:**
 ```json
-{
-  "by": "default",
-  "valid_key": false,
-  "results": {
-    "temp": 24,
-    "date": "15/02/2025",
-    "time": "21:09",
-    "condition_code": "28",
-    "description": "Tempo nublado",
-    "currently": "noite",
-    "cid": "",
-    "city": "São Paulo, SP",
-    "img_id": "28n",
-    "humidity": 87,
-    "cloudiness": 75,
-    "rain": 0,
-    "wind_speedy": "3.6 km/h",
-    "wind_direction": 150,
-    "wind_cardinal": "SE",
-    "sunrise": "05:54 am",
-    "sunset": "06:46 pm",
-    "moon_phase": "waning_gibbous",
-    "condition_slug": "cloudly_night",
-    "city_name": "São Paulo",
-    "timezone": "-03:00",
-    "forecast": [
-      {
-        "date": "15/02",
-        "weekday": "Sáb",
-        "max": 30,
-        "min": 19,
-        "humidity": 51,
-        "cloudiness": 4,
-        "rain": 5.01,
-        "rain_probability": 100,
-        "wind_speedy": "3.69 km/h",
-        "sunrise": "05:54 am",
-        "sunset": "06:46 pm",
-        "moon_phase": "waning_gibbous",
-        "description": "Chuva",
-        "condition": "rain"
-      }
-    ]
-  }
-}
+{  
+  "latitude": -23.55,  
+  "longitude": -46.63,  
+  "generationtime_ms": 0.512,  
+  "utc_offset_seconds": -10800,  
+  "timezone": "America/Sao_Paulo",  
+  "timezone_abbreviation": "BRT",  
+  "elevation": 760.0,  
+  "current_weather": {  
+    "temperature": 24.3,  
+    "windspeed": 3.6,  
+    "winddirection": 150,  
+    "weathercode": 3,  
+    "time": "2025-02-15T21:09"  
+  },  
+  "daily": {  
+    "time": ["2025-02-15"],  
+    "temperature_2m_max": [30],  
+    "temperature_2m_min": [19]  
+  }  
+}  
 ```
 
 ### 2. APOD (  Astronomy Picture of the Day )
