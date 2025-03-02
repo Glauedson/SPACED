@@ -45,27 +45,32 @@ const MoonForecast = () => {
   useEffect(() => {
     const fetchMoonPhases = async () => {
       try {
-        const geoResponse = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=SEU_API_KEY`)
-        if (!geoResponse.ok) throw new Error(`Erro na geolocalização: ${geoResponse.status}`)
-        const geoData = await geoResponse.json()
-        const latitude = geoData.location.latitude
-        const longitude = geoData.location.longitude
+        const hoje = new Date()
+        const ultimaLuaNova = new Date('2025-02-28')
+        const diffTimeHoje = Math.abs(hoje - ultimaLuaNova)
+        const diffDaysHoje = Math.floor(diffTimeHoje / (1000 * 60 * 60 * 24))
+        const cicloLunarHoje = diffDaysHoje % 29.5
 
-        const response = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=moonphase&timezone=auto&forecast_days=8`
-        )
-
-        if (!response.ok) throw new Error(`Erro na requisição: ${response.status}`)
-        const data = await response.json()
+    
+        const dadosGerados = []
         
-        if (data?.daily?.moonphase && data?.daily?.time) {
-          const fasesDaLuaProcessadas = data.daily.moonphase.map((fase, index) => ({
-            date: data.daily.time[index],
-            phase: mapearFaseLua(fase),
-            original: fase 
-          })).slice(0, 8)
-          setPrevisao(fasesDaLuaProcessadas)
-        } else gerarDadosExemplo()
+        for (let i = 0; i < 7; i++) {
+          const data = new Date(hoje)
+          data.setDate(hoje.getDate() + i)
+          const dataFormatada = data.toISOString().split('T')[0]
+          
+          const cicloLunar = (cicloLunarHoje + i) % 29.5
+          const valorFase = cicloLunar / 29.5
+          const faseLua = mapearFaseLua(valorFase)
+          
+          dadosGerados.push({ 
+            date: dataFormatada, 
+            phase: faseLua, 
+            original: valorFase 
+          })
+        }
+        
+        setPrevisao(dadosGerados)
       } catch (error) {
         console.error("Erro ao buscar dados:", error)
         gerarDadosExemplo()
@@ -76,7 +81,7 @@ const MoonForecast = () => {
       const hoje = new Date()
       const dadosExemplo = []
       
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 7; i++) {
         const data = new Date(hoje)
         data.setDate(hoje.getDate() + i)
         const dataFormatada = data.toISOString().split('T')[0]
@@ -84,12 +89,13 @@ const MoonForecast = () => {
         const fasesDisponiveis = ["Lua Nova", "Lua Crescente", "Quarto Crescente", 
                                   "Gibosa Crescente", "Lua Cheia", "Gibosa Minguante", 
                                   "Quarto Minguante", "Lua Minguante"]
-        const faseAleatoria = fasesDisponiveis[(i + 1) % 8]
+        const faseAleatoria = fasesDisponiveis[(i + Math.floor(hoje.getDate() % 8)) % 8]
         
         dadosExemplo.push({ date: dataFormatada, phase: faseAleatoria, original: null })
       }
       setPrevisao(dadosExemplo)
     }
+    
     fetchMoonPhases()
   }, [])
 
