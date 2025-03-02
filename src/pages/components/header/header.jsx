@@ -58,7 +58,7 @@ function Header() {
                     className={styles.icons}/>
                 </Link></li>
 
-                <li><Link to="#">
+                <li><Link to="/APOD">
                   APOD
                   <FontAwesomeIcon 
                     icon={faImage}

@@ -235,7 +235,7 @@ body::-webkit-scrollbar {
     color: #000000;
     width: 100%;
     max-width: 1100px;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px;
     position: relative;
     top: -9dvw;
     margin-top: 15px;

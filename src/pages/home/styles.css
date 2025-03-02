@@ -166,7 +166,7 @@ body {
   }
 
   .luaDescricao > P {
-    font-size: clamp(13px, 2vw, 17px);
+    font-size: clamp(11px, 2vw, 17px);
     color: #0D0F14;
     
   }
@@ -176,7 +176,7 @@ body {
     height: auto;
     background-color: #0D0F14;
     color: white;
-    font-size: clamp(13px, 2vw, 17px);
+    font-size: clamp(11px, 2vw, 17px);
     margin-top: 9px;
   }
 
