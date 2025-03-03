@@ -127,6 +127,64 @@ body {
   color: white;
 }
 
+.conteinerApod{
+  background-color: #666464;
+  background-image: url(../../assets/images/ApodBanner.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 50px 0px 50px 0px;
+  width: 100%;
+  aspect-ratio: 32/10;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudoInterno{
+  width: clamp( 1000px , 70vw , 1900px );
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+}
+
+.conteinerTextoApod{
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  padding: 40px 40px 40px 40px;
+  width: 40%;
+  min-height: 300px;
+  height: 80%;
+  max-height: 600px;
+  color: #ffffff;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.tituloAPOD > p{
+  font-size: clamp(15px, 1.4vw, 20px);
+}
+
+.tituloAPOD > h1{
+  font-size: clamp(30px, 2.5vw, 45px);
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.conteinerTextoApod > a{
+  background-color: antiquewhite;
+  text-align: center;
+  padding: 15px;
+  color: #0D0F14;
+  text-decoration: none;
+  border-radius: 15px;
+}
 
 /* Tablet */
 @media (max-width: 1060px) {
@@ -145,8 +203,8 @@ body {
     height: auto;
     border-radius: 15px 15px 15px 15px;
     box-shadow: 
-    0px -5px 10px rgba(0, 0, 0, 0.719), /* Sombra preta acima */
-    0px 3px 15px rgba(245, 244, 244, 0.137);
+    0px -4px 4px rgba(0, 0, 0, 0.25), /* Sombra preta acima */
+    0px 4px 4px rgba(245, 244, 244, 0.25);
     background:  
     linear-gradient(rgba(0, 0, 0, 0.897), rgba(8, 8, 8, 0.5)),
     url('../../assets/images/space-stars-background-abstract-stardust-600nw-2318734487.webp');
@@ -195,6 +253,31 @@ body {
   .infoLua > p:last-child{
     font-size: clamp(10px, 5vw, 40px);
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.445), 0 0 3px rgba(255, 255, 255, 0.527), 0 0 3px rgba(255, 255, 255, 0.39);
+  }
+
+  .conteudoInterno{
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 646px){
+
+  .conteinerTextoApod{
+    width: 100%;
+    padding: 20px;
+  }
+
+  .tituloAPOD > p{
+    font-size: clamp(11px, 2vw, 17px);
+  }
+  
+  .tituloAPOD > h1{
+    font-size: clamp(20px, 3vw, 45px);
+  }
+
+  .conteinerTextoApod > a{
+    font-size: clamp(11px, 2vw, 17px);
   }
 
 }

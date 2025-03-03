@@ -39,6 +39,33 @@ function Home() {
           </div>
         </div>
       </motion.div>
+
+      <div className="conteinerApod">
+        <div className="conteudoInterno">
+        <motion.div 
+        className="conteinerTextoApod"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+            <div className="tituloAPOD">
+              <p>APOD</p>
+              <h1>ASTRONOMY PICTURE OF THE DAY</h1>
+
+              <p>Veja a imagem astronômica do dia! A cada dia uma nova imagem do espaço é selecionada pela NASA e disponibilizada para você. Acompanhe as maravilhas do universo e descubra mais sobre o cosmos!</p>
+            </div>
+
+            <Link to="/APOD">
+              <p>ACESSAR</p> 
+            </Link>
+          </motion.div>
+
+
+
+        </div>
+      </div>
+
     </>
   )
 }
