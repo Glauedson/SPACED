@@ -46,7 +46,7 @@ const MoonForecast = () => {
     const fetchMoonPhases = async () => {
       try {
         const hoje = new Date()
-        const ultimaLuaNova = new Date('2025-02-28')
+        const ultimaLuaNova = new Date('2025-02-27')
         const diffTimeHoje = Math.abs(hoje - ultimaLuaNova)
         const diffDaysHoje = Math.floor(diffTimeHoje / (1000 * 60 * 60 * 24))
         const cicloLunarHoje = diffDaysHoje % 29.5
