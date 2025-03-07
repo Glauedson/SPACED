@@ -1,3 +1,62 @@
-.teste{
-    color: blue;
+.conteinerInicial{
+
+    width: 100vw;
+    display: flex;
+}
+
+.fotoData{
+
+    width: 40vw;
+}
+
+.foto{
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: rgb(139, 137, 137);
+    background-image: url(https://apod.nasa.gov/apod/image/2503/M94_hst1542a_1280.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.informações{
+
+    width: 60vw;
+}
+
+.infoConteudo{
+    padding: 30px 70px;
+}
+
+.infoConteudo h1{
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.infoConteudo p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 970px) {
+
+    .conteinerInicial{
+        flex-direction: column;
+    }
+
+    .fotoData{
+        width: 100vw;
+    }
+
+    .foto{
+        aspect-ratio: 16/9;
+    }
+
+    .informações{
+        width: 100vw;
+    }
+
+    .infoConteudo{
+        padding: 30px 20px;
+    }
 }

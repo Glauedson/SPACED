@@ -13,8 +13,8 @@ function Header() {
 
   useEffect(() => {
     if (isOpen) {
-      setShouldAnimate(false);
-      setTimeout(() => setShouldAnimate(true), 100);
+      setShouldAnimate(false)
+      setTimeout(() => setShouldAnimate(true), 100)
     }
   }, [isOpen])
 
