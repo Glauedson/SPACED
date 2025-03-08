@@ -67,58 +67,12 @@ Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a 
 
 - **APIs**:
   
-  - Open-Meteo Weather - **Open-Meteo**
   - APOD - **NASA**
   
 
 ## <img src="src/assets/icons/logo1x1.png" width=19 > Endpoints das APIs
 
-### 1.  Open-Meteo Weather
-
-**Descrição:**
-O Open-Meteo Weather é uma API que fornece dados de previsão do tempo e condições climáticas atuais para uma cidade.
-Ela oferece respostas rápidas, suporte a várias coordenadas geográficas e dados meteorológicos precisos sem necessidade de autenticação.
-
-<details>
-  <summary> <img src="https://img.icons8.com/color/512/google-translate.png" width="17px"> Click here to translate </summary>
-  <blockquote>
-    <p>Description: Open-Meteo Weather is an API that provides weather forecasts and current weather conditions for a city. It offers fast responses, supports multiple geographical coordinates, and delivers accurate meteorological data without authentication.</p>
-  </blockquote>
-</details>
-
-**Endpoint:** ``/forecast``
-
-**Exemplo de Requisição:**
-```http
-GET https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=America/Sao_Paulo  
-```
-
-**Exemplo de Resposta:**
-```json
-{  
-  "latitude": -23.55,  
-  "longitude": -46.63,  
-  "generationtime_ms": 0.512,  
-  "utc_offset_seconds": -10800,  
-  "timezone": "America/Sao_Paulo",  
-  "timezone_abbreviation": "BRT",  
-  "elevation": 760.0,  
-  "current_weather": {  
-    "temperature": 24.3,  
-    "windspeed": 3.6,  
-    "winddirection": 150,  
-    "weathercode": 3,  
-    "time": "2025-02-15T21:09"  
-  },  
-  "daily": {  
-    "time": ["2025-02-15"],  
-    "temperature_2m_max": [30],  
-    "temperature_2m_min": [19]  
-  }  
-}  
-```
-
-### 2. APOD (  Astronomy Picture of the Day )
+### 1. APOD (  Astronomy Picture of the Day )
 
 **Descrição:**
 é uma interface de programação de aplicações (API) desenvolvida pela NASA que fornece diariamente uma imagem astronômica.
