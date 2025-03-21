@@ -18,6 +18,39 @@
     background-position: center;
 }
 
+.infoFoto{
+    display: flex;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.infoFoto > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #131313;
+    border-radius: 10px;
+    padding: 25px;
+    flex: 1;
+    line-height: 1;
+    margin: 0;
+}
+
+.infoFoto > div > h3{
+    font-weight: bold;
+    font-size: clamp(0.8rem, 3vw, 1.6rem);
+    font-weight: bold;
+}
+
+.infoFoto > div > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    color: rgb(121, 119, 119);
+}
+
 .informações{
 
     width: 60vw;
@@ -36,6 +69,54 @@
 .infoConteudo p{
     font-size: clamp(0.7rem, 2vw, 1rem);
     margin-bottom: 15px;
+}
+
+.baixarImagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.baixarImagem button{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.baixarImagem button:hover{
+    background-color: rgb(192, 190, 190);
+    color: white;
+}
+
+.HubDias{
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+}
+
+.diaAnterior{
+   width: 100%;
+   max-width: 390px;
+   min-width: 120px;
+}
+
+.DiasFoto{
+    background-color: white;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
 }
 
 @media (max-width: 970px) {
