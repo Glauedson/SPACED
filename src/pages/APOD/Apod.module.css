@@ -5,7 +5,6 @@
 }
 
 .fotoData{
-
     width: 40vw;
 }
 
@@ -13,7 +12,6 @@
     width: 100%;
     aspect-ratio: 1/1;
     background-color: rgb(139, 137, 137);
-    background-image: url(https://apod.nasa.gov/apod/image/2503/M94_hst1542a_1280.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -31,10 +29,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+
     background-color: #131313;
     border-radius: 10px;
-    padding: 25px;
+    aspect-ratio: 16/7;
     flex: 1;
     line-height: 1;
     margin: 0;
@@ -91,6 +89,10 @@
     border: none;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .baixarImagem button:hover{
@@ -110,13 +112,23 @@
    width: 100%;
    max-width: 390px;
    min-width: 120px;
+   height: 100%;
+  
 }
 
 .DiasFoto{
     background-color: white;
+    background-size: cover;
     width: 100%;
     aspect-ratio: 1/1;
     border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.diaAnterior > p {
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
 @media (max-width: 970px) {
@@ -138,6 +150,14 @@
     }
 
     .infoConteudo{
-        padding: 30px 20px;
+        padding: 0px 20px;
     }
+}
+
+@media (max-width: 500px) { 
+    .foto{
+        aspect-ratio: 1/1;
+        background-size: cover;
+    }
+
 }

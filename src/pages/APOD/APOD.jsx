@@ -1,86 +1,110 @@
+import { useEffect, useState } from "react"
 import styles from "./Apod.module.css"
 import Header from "../components/header/header"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCalendarDays, faDownload } from "@fortawesome/free-solid-svg-icons"
+
+const API_KEY = "53VVGWPFSAqtWUBMXGKDgF6ZOJuCWEfdfLyzve0k"
+const API_URL = "https://api.nasa.gov/planetary/apod"
+
+function formatDate(dateStr) {
+  if (!dateStr) return "--"
+  const date = new Date(dateStr + "T00:00:00Z") 
+  const day = date.getUTCDate().toString().padStart(2, "0")
+  const month = date.toLocaleString("en", { month: "short", timeZone: "UTC" }).toUpperCase()
+  const year = date.getUTCFullYear()
+  return `${day} ${month} ${year}`
+}
 
 function APOD() {
+  const [apod, setApod] = useState(null)
+  const [previousApods, setPreviousApods] = useState([])
+
+  async function fetchAPOD(date = "") {
+    try {
+      const response = await fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
+      const data = await response.json()
+      setApod(data)
+    } catch (error) {
+      console.error("Erro ao buscar APOD:", error)
+    }
+  }
+
+  useEffect(() => {
+    fetchAPOD()
+
+    async function fetchPreviousAPODs() {
+      const dates = Array.from({ length: 7 }, (_, i) => {
+        const date = new Date()
+        date.setDate(date.getDate() - i)
+        return date.toISOString().split("T")[0]
+      })
+
+      const requests = dates.map(date =>
+        fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
+          .then(res => res.json())
+          .catch(() => null)
+      )
+
+      try {
+        const results = await Promise.all(requests)
+        setPreviousApods(results.filter(apod => apod))
+      } catch (error) {
+        console.error("Erro ao buscar APODs anteriores:", error)
+      }
+    }
+
+    fetchPreviousAPODs()
+  }, [])
+
   return (
     <>
       <Header />
       <main>
         <div className={styles.conteinerInicial}>
           <div className={styles.fotoData}>
-            <div className={styles.foto}>
-              
-            </div>
-
+            <div className={styles.foto} style={{ backgroundImage: `url(${apod?.hdurl || ""})` }}></div>
             <div className={styles.infoFoto}>
               <div className={styles.data}>
                 <p>DATA</p>
-                <h3>05 MAR 2025</h3>
+                <h3>{apod ? formatDate(apod.date) : "--"}</h3>
               </div>
-
               <div className={styles.autor}>
                 <p>AUTOR</p>
-                <h3>Rabeea Alkuwari</h3>
+                <h3>{apod?.copyright || "NASA"}</h3>
               </div>
             </div>
           </div>
-
-          <div className={styles.informações}>
+          <div className={styles.informacoes}>
             <div className={styles.infoConteudo}>
-              <h1>Starburst Galaxy Messier 94</h1>
-              <p>Beautiful island universe Messier 94 lies a mere 15 million light-years distant in the northern constellation of the hunting dogs, Canes Venatici. A popular target for earth-based astronomers, the face-on spiral galaxy is about 30,000 light-years across, with spiral arms sweeping through the outskirts of its broad disk. But this Hubble Space Telescope field of view spans about 7,000 light-years or so across M94s central region. The sharp close-up examines the galaxys compact, bright nucleus and prominent inner dust lanes, surrounded by a remarkable bluish ring of young, massive stars. The massive stars in the ring appear to be less than about 10 million years old, indicating the galaxy experienced a corresponding well-defined era of rapid star formation. As a result, while the small, bright nucleus is typical of the Seyfert class of active galaxies, M94 is also known as a starburst galaxy. Because M94 is relatively nearby, astronomers can explore in detail reasons for the galaxys burst of star formation.  Todays Coverage: Moon Landing </p>
-
+              <h1>{apod?.title || "Carregando..."}</h1>
+              <p>{apod?.explanation || "Carregando..."}</p>
               <p>BAIXAR IMAGEM</p>
               <div className={styles.baixarImagem}>
-                <button>HD</button>
-                <button>SD</button>
+                <button onClick={() => window.open(apod?.hdurl, "_blank")}>
+                  <FontAwesomeIcon icon={faDownload} /> HD
+                </button>
+                <button onClick={() => window.open(apod?.url, "_blank")}>
+                  <FontAwesomeIcon icon={faDownload} /> SD
+                </button>
               </div>
-
               <p>DIAS ANTERIORES</p>
-              
               <div className={styles.HubDias}>
-                <div className={styles.diaAnterior}>
-                  <div className={styles.DiasFoto}>
-
+                {previousApods.map((prev, index) => (
+                  <div
+                    key={index}
+                    className={styles.diaAnterior}
+                    onClick={() => fetchAPOD(prev.date)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <div className={styles.DiasFoto} style={{ backgroundImage: `url(${prev?.url || ""})` }}></div>
+                    <p>{prev?.title || "Sem título"}</p>
+                    <p>
+                      <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
+                    </p>
                   </div>
-                  <p>StarBurst Galaxy Messier 94</p>
-                  <p>05 MAR 2025</p>
-                </div>
-
-                <div className={styles.diaAnterior}>
-                <div className={styles.DiasFoto}>
-
-                </div>
-                <p>StarBurst Galaxy Messier 94</p>
-                <p>05 MAR 2025</p>
-                </div>
-
-                <div className={styles.diaAnterior}>
-                <div className={styles.DiasFoto}>
-
-                </div>
-                <p>StarBurst Galaxy Messier 94</p>
-                <p>05 MAR 2025</p>
-                </div>
-
-                <div className={styles.diaAnterior}>
-                <div className={styles.DiasFoto}>
-
-                </div>
-                <p>StarBurst Galaxy Messier 94</p>
-                <p>05 MAR 2025</p>
-                </div>
-
-                <div className={styles.diaAnterior}>
-                <div className={styles.DiasFoto}>
-
-                </div>
-                <p>StarBurst Galaxy Messier 94</p>
-                <p>05 MAR 2025</p>
-                </div>
-
+                ))}
               </div>
-
             </div>
           </div>
         </div>
