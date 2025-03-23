@@ -14,6 +14,7 @@
     background-color: rgb(139, 137, 137);
     background-size: cover;
     background-position: center;
+    border-radius: 0 0 50px 0px;
 }
 
 .infoFoto{
@@ -29,7 +30,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    text-align: center;
     background-color: #131313;
     border-radius: 10px;
     aspect-ratio: 16/7;
@@ -49,8 +50,7 @@
     color: rgb(121, 119, 119);
 }
 
-.informações{
-
+.informacoes{
     width: 60vw;
 }
 
@@ -145,7 +145,7 @@
         aspect-ratio: 16/9;
     }
 
-    .informações{
+    .informacoes{
         width: 100vw;
     }
 
