@@ -34,18 +34,26 @@ function APOD() {
     fetchAPOD()
 
     async function fetchPreviousAPODs() {
+      const now = new Date()
+      now.setUTCHours(0, 0, 0, 0)
+    
+      const today = new Date(now)
+      if (now.getUTCHours() < 4) {
+        today.setUTCDate(today.getUTCDate() - 1)
+      }
+    
       const dates = Array.from({ length: 7 }, (_, i) => {
-        const date = new Date()
-        date.setDate(date.getDate() - i)
+        const date = new Date(today)
+        date.setUTCDate(date.getUTCDate() - i)
         return date.toISOString().split("T")[0]
       })
-
+    
       const requests = dates.map(date =>
         fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
           .then(res => res.json())
           .catch(() => null)
       )
-
+    
       try {
         const results = await Promise.all(requests)
         setPreviousApods(results.filter(apod => apod))

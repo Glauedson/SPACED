@@ -20,7 +20,7 @@ const MoonForecast = () => {
     if (valorNormalizado >= 0.265 && valorNormalizado < 0.475) return "Gibosa Crescente"
     if (valorNormalizado >= 0.475 && valorNormalizado < 0.525) return "Lua Cheia"
     if (valorNormalizado >= 0.525 && valorNormalizado < 0.735) return "Gibosa Minguante"
-    if (valorNormalizado >= 0.735 && valorNormalizado < 0.765) return "Quarto Minguante"
+    if (valorNormalizado >= 0.735 && valorNormalizado < 0.865) return "Quarto Minguante"
     return "Lua Minguante"
   }
 
