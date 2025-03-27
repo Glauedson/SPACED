@@ -7,24 +7,58 @@ import { faCalendarDays, faDownload } from "@fortawesome/free-solid-svg-icons"
 const API_KEY = "53VVGWPFSAqtWUBMXGKDgF6ZOJuCWEfdfLyzve0k"
 const API_URL = "https://api.nasa.gov/planetary/apod"
 
+const MY_MEMORY_API_URL = "https://api.mymemory.translated.net/get"
+
 function formatDate(dateStr) {
   if (!dateStr) return "--"
-  const date = new Date(dateStr + "T00:00:00Z") 
+  const date = new Date(dateStr + "T00:00:00Z")
   const day = date.getUTCDate().toString().padStart(2, "0")
   const month = date.toLocaleString("en", { month: "short", timeZone: "UTC" }).toUpperCase()
   const year = date.getUTCFullYear()
   return `${day} ${month} ${year}`
 }
 
+async function translateText(text) {
+  const maxLength = 500
+  const chunks = []
+
+  for (let i = 0; i < text.length; i += maxLength) {
+    chunks.push(text.slice(i, i + maxLength))
+  }
+
+  const translations = []
+  
+  for (const chunk of chunks) {
+    const response = await fetch(`${MY_MEMORY_API_URL}?q=${encodeURIComponent(chunk)}&langpair=en|pt`)
+    const data = await response.json()
+    translations.push(data.responseData.translatedText)
+  }
+
+  return translations.join(" ")
+}
+
 function APOD() {
   const [apod, setApod] = useState(null)
   const [previousApods, setPreviousApods] = useState([])
+  const [translatedTitle, setTranslatedTitle] = useState("")
+  const [translatedExplanation, setTranslatedExplanation] = useState("")
+  const [translatedPreviousTitles, setTranslatedPreviousTitles] = useState([])
 
   async function fetchAPOD(date = "") {
     try {
       const response = await fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
       const data = await response.json()
       setApod(data)
+
+      if (data.title) {
+        const translatedTitle = await translateText(data.title);
+        setTranslatedTitle(translatedTitle);
+      }
+      if (data.explanation) {
+        const translatedExplanation = await translateText(data.explanation);
+        setTranslatedExplanation(translatedExplanation);
+      }
+
     } catch (error) {
       console.error("Erro ao buscar APOD:", error)
     }
@@ -57,6 +91,12 @@ function APOD() {
       try {
         const results = await Promise.all(requests)
         setPreviousApods(results.filter(apod => apod))
+
+        const translatedTitles = await Promise.all(
+          results.map((apod) => apod?.title ? translateText(apod.title) : "")
+        )
+        setTranslatedPreviousTitles(translatedTitles)
+
       } catch (error) {
         console.error("Erro ao buscar APODs anteriores:", error)
       }
@@ -85,8 +125,8 @@ function APOD() {
           </div>
           <div className={styles.informacoes}>
             <div className={styles.infoConteudo}>
-              <h1>{apod?.title || "Carregando..."}</h1>
-              <p>{apod?.explanation || "Carregando..."}</p>
+              <h1>{translatedTitle || "Carregando..."}</h1>
+              <p>{translatedExplanation || "Carregando..."}</p>
               <p>BAIXAR IMAGEM</p>
               <div className={styles.baixarImagem}>
                 <button onClick={() => window.open(apod?.hdurl, "_blank")}>
@@ -106,7 +146,7 @@ function APOD() {
                     style={{ cursor: "pointer" }}
                   >
                     <div className={styles.DiasFoto} style={{ backgroundImage: `url(${prev?.url || ""})` }}></div>
-                    <p>{prev?.title || "Sem título"}</p>
+                    <p>{translatedPreviousTitles[index] || "Sem título"}</p>
                     <p>
                       <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
                     </p>
