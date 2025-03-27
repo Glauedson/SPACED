@@ -68,6 +68,7 @@ Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a 
 - **APIs**:
   
   - APOD - **NASA**
+  - MyMemory 
   
 
 ## <img src="src/assets/icons/logo1x1.png" width=19 > Endpoints das APIs
@@ -102,6 +103,47 @@ GET https://api.nasa.gov/planetary/apod
   "url": "https://www.youtube.com/embed/ukCSRYcjSQw?rel=0"
 }
 ```
+
+### 2. MyMemory
+
+**Descrição:**
+ A API MyMemory oferece um serviço de tradução automática que permite traduzir textos entre diversos idiomas. No seu projeto, ela está sendo utilizada para traduzir o título e a descrição das imagens da NASA (APOD) para o português. Ela suporta traduções em tempo real e é amplamente usada por seu modelo de tradução baseado em memória de tradução, que oferece respostas rápidas e confiáveis.
+
+<details>
+  <summary> <img src="https://img.icons8.com/color/512/google-translate.png" width="17px"> Click here to translate </summary>
+  <blockquote>
+    <p>Description: The MyMemory API provides an automatic translation service that allows text translation between multiple languages. In your project, it's used to translate NASA's Astronomy Picture of the Day (APOD) titles and descriptions into Portuguese. It offers real-time translations and is widely used for its translation memory-based model, providing fast and reliable responses.</p>
+  </blockquote>
+</details>
+
+**Endpoint:** ``/get``
+
+**Exemplo de Requisição:**
+```http
+GET https://api.mymemory.translated.net/get?q={texto_a_ser_traduzido}&langpair=en|pt
+```
+
+**Exemplo de Resposta:**
+```json
+{
+  "responseData": {
+    "translatedText": "O asteroide Bennu contém os blocos de construção da vida"
+  },
+  "quotaFinished": false,
+  "matchRate": 100
+}
+```
+
+**Parâmetros:**
+- ``q``: Texto que será traduzido.
+- ``langpair`` Par de idiomas para tradução, no formato ``idioma_origem|idioma_destino.`` Exemplo: ``en|pt`` para traduzir de inglês para português.
+
+
+> [!IMPORTANT]
+>
+> A resposta contém o texto traduzido no campo ``translatedText.``
+>
+> A API também inclui informações sobre o uso da quota de traduções (campo ``quotaFinished``), o que pode ser útil para saber quando você atingiu o limite de requisições.
 
 ## 📄 Licença
 
