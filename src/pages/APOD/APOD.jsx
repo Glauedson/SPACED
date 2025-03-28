@@ -146,10 +146,12 @@ function APOD() {
                     style={{ cursor: "pointer" }}
                   >
                     <div className={styles.DiasFoto} style={{ backgroundImage: `url(${prev?.url || ""})` }}></div>
-                    <p>{translatedPreviousTitles[index] || "Sem título"}</p>
-                    <p>
-                      <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
-                    </p>
+                    <div className={styles.diaAnteriorInfo}>
+                      <p>{translatedPreviousTitles[index] || "Sem título"}</p>
+                      <p>
+                        <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>

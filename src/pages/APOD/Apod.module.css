@@ -64,7 +64,7 @@
     font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
-.infoConteudo p{
+.infoConteudo > p{
     font-size: clamp(0.7rem, 2vw, 1rem);
     margin-bottom: 15px;
 }
@@ -106,29 +106,62 @@
     margin-top: 15px;
     margin-bottom: 15px;
     overflow-y: auto;
+    padding-bottom: 10px;
+    --sb-track-color: #0f0f0f;
+    --sb-thumb-color: #fdfdfd;
+    --sb-size: 5px;
+}
+
+.HubDias::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+.HubDias::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 1px;
+}
+
+.HubDias::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 1px;
 }
 
 .diaAnterior{
    width: 100%;
    max-width: 390px;
-   min-width: 120px;
+   min-width: 150px;
    height: 100%;
-  
+   background-color: #131313;
 }
 
 .DiasFoto{
     background-color: white;
     background-size: cover;
     width: 100%;
+    background-position: center;
     aspect-ratio: 1/1;
     border-radius: 10px;
     margin-bottom: 5px;
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
 }
 
-.diaAnterior > p {
+.diaAnteriorInfo > p {
     display: flex;
     gap: 5px;
     align-items: center;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.diaAnteriorInfo{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 10px;
+    min-height: 90px;
+    justify-content: space-between;
 }
 
 @media (max-width: 970px) {
