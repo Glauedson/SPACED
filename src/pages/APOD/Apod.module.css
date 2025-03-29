@@ -130,7 +130,7 @@
 .diaAnterior{
    width: 100%;
    max-width: 390px;
-   min-width: 150px;
+   min-width: 130px;
    height: 100%;
    background-color: #131313;
 }
@@ -162,6 +162,56 @@
     padding: 10px 10px;
     min-height: 90px;
     justify-content: space-between;
+}
+
+@keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.6;
+    }
+}
+  
+.loading {
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a !important;
+    background-image: none !important;
+}
+  
+.loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: shine 1.5s infinite;
+}
+  
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 30, 30, 0.5);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+  
+@keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
 }
 
 @media (max-width: 970px) {

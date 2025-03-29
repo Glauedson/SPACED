@@ -48,12 +48,21 @@ function APOD() {
   const [translatedTitle, setTranslatedTitle] = useState("")
   const [translatedExplanation, setTranslatedExplanation] = useState("")
   const [translatedPreviousTitles, setTranslatedPreviousTitles] = useState([])
+  const [mainImageLoaded, setMainImageLoaded] = useState(false)
+  const [previousImagesLoaded, setPreviousImagesLoaded] = useState([])
 
   async function fetchAPOD(date = "") {
     try {
+      setMainImageLoaded(false)
       const response = await fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
       const data = await response.json()
       setApod(data)
+
+      // Pré-carregue a imagem principal
+      const img = new Image()
+      img.onload = () => setMainImageLoaded(true)
+      img.onerror = () => setMainImageLoaded(true) // Considera carregado mesmo em caso de erro
+      img.src = data.hdurl || data.url || ""
 
       if (data.title) {
         const translatedTitle = await translateText(data.title);
@@ -66,6 +75,7 @@ function APOD() {
 
     } catch (error) {
       console.error("Erro ao buscar APOD:", error)
+      setMainImageLoaded(true) // Considera carregado mesmo em caso de erro
     }
   }
 
@@ -95,10 +105,32 @@ function APOD() {
     
       try {
         const results = await Promise.all(requests)
-        setPreviousApods(results.filter(apod => apod))
+        const filteredResults = results.filter(apod => apod)
+        setPreviousApods(filteredResults)
+        setPreviousImagesLoaded(new Array(filteredResults.length).fill(false))
+
+        // Pré-carregue as imagens anteriores
+        filteredResults.forEach((apod, index) => {
+          const img = new Image()
+          img.onload = () => {
+            setPreviousImagesLoaded(prev => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          }
+          img.onerror = () => {
+            setPreviousImagesLoaded(prev => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          }
+          img.src = apod?.url || ""
+        })
 
         const translatedTitles = await Promise.all(
-          results.map((apod) => apod?.title ? translateText(apod.title) : "")
+          filteredResults.map((apod) => apod?.title ? translateText(apod.title) : "")
         )
         setTranslatedPreviousTitles(translatedTitles)
 
@@ -116,7 +148,10 @@ function APOD() {
       <main>
         <div className={styles.conteinerInicial}>
           <div className={styles.fotoData}>
-            <div className={styles.foto} style={{ backgroundImage: `url(${apod?.hdurl || ""})` }}></div>
+            <div 
+              className={`${styles.foto} ${!mainImageLoaded ? styles.loading : ""}`} 
+              style={{ backgroundImage: mainImageLoaded && apod?.hdurl ? `url(${apod.hdurl})` : "none" }}
+            ></div>
             <div className={styles.infoFoto}>
               <div className={styles.data}>
                 <p>DATA</p>
@@ -150,7 +185,10 @@ function APOD() {
                     onClick={() => fetchAPOD(prev.date)}
                     style={{ cursor: "pointer" }}
                   >
-                    <div className={styles.DiasFoto} style={{ backgroundImage: `url(${prev?.url || ""})` }}></div>
+                    <div 
+                      className={`${styles.DiasFoto} ${!previousImagesLoaded[index] ? styles.loading : ""}`} 
+                      style={{ backgroundImage: previousImagesLoaded[index] && prev?.url ? `url(${prev.url})` : "none" }}
+                    ></div>
                     <div className={styles.diaAnteriorInfo}>
                       <p>{translatedPreviousTitles[index] || "Carregando..."}</p>
                       <p>
