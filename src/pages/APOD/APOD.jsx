@@ -183,7 +183,14 @@ function APOD() {
                 <p>AUTOR</p>
                 <h3>{apod?.copyright || "NASA"}</h3>
               </motion.div>
+
             </div>
+
+            <div className={styles.AvisoDadosErro}>
+                <p>
+                   Se os textos estiverem em inglês, peço desculpas pelo erro. A API utilizada para a tradução dos dados possui um limite diário de traduções</p>
+            </div>
+
           </div>
           <div className={styles.informacoes}>
             <div className={styles.infoConteudo}>

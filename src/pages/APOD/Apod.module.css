@@ -74,6 +74,27 @@
     margin-bottom: 15px;
 }
 
+.AvisoDadosErro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    gap: 10px;
+    color: rgb(29, 28, 28);
+}
+
+.AvisoDadosErro > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+    background-color: rgb(255, 255, 255);
+    width: 93%;
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
 .baixarImagem{
     display: flex;
     justify-content: center;
@@ -279,6 +300,10 @@
 
     .infoConteudo{
         padding: 0px 20px;
+    }
+
+    .AvisoDadosErro > p{
+        width: 88%; 
     }
 }
 
