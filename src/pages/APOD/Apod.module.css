@@ -58,13 +58,13 @@
     padding: 30px 70px;
 }
 
-.infoConteudo h1{
+.infoConteudo > div > h1{
     font-weight: bold;
     margin-bottom: 15px;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
-.infoConteudo > p{
+.infoConteudo > div > p{
     font-size: clamp(0.7rem, 2vw, 1rem);
     margin-bottom: 15px;
 }

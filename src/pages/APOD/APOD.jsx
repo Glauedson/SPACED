@@ -3,6 +3,7 @@ import styles from "./Apod.module.css"
 import Header from "../components/header/header"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendarDays, faDownload } from "@fortawesome/free-solid-svg-icons"
+import { motion } from "framer-motion"
 
 const API_KEY = "53VVGWPFSAqtWUBMXGKDgF6ZOJuCWEfdfLyzve0k"
 const API_URL = "https://api.nasa.gov/planetary/apod"
@@ -65,10 +66,9 @@ function APOD() {
       const data = await response.json()
       setApod(data)
 
-      // Pré-carregue a imagem principal
       const img = new Image()
       img.onload = () => setMainImageLoaded(true)
-      img.onerror = () => setMainImageLoaded(true) // Considera carregado mesmo em caso de erro
+      img.onerror = () => setMainImageLoaded(true)
       img.src = data.hdurl || data.url || ""
 
       if (data.title) {
@@ -84,7 +84,7 @@ function APOD() {
 
     } catch (error) {
       console.error("Erro ao buscar APOD:", error)
-      setMainImageLoaded(true) // Considera carregado mesmo em caso de erro
+      setMainImageLoaded(true)
       setTitleLoaded(true)
       setExplanationLoaded(true)
     }
@@ -120,7 +120,6 @@ function APOD() {
         setPreviousApods(filteredResults)
         setPreviousImagesLoaded(new Array(filteredResults.length).fill(false))
 
-        // Pré-carregue as imagens anteriores
         filteredResults.forEach((apod, index) => {
           const img = new Image()
           img.onload = () => {
@@ -164,55 +163,112 @@ function APOD() {
               style={{ backgroundImage: mainImageLoaded && apod?.hdurl ? `url(${apod.hdurl})` : "none" }}
             ></div>
             <div className={styles.infoFoto}>
-              <div className={styles.data}>
+              <motion.div 
+                className={styles.data}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 <p>DATA</p>
                 <h3>{apod ? formatDate(apod.date) : "--"}</h3>
-              </div>
-              <div className={styles.autor}>
+              </motion.div>
+              <motion.div 
+                className={styles.autor}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <p>AUTOR</p>
                 <h3>{apod?.copyright || "NASA"}</h3>
-              </div>
+              </motion.div>
             </div>
           </div>
           <div className={styles.informacoes}>
             <div className={styles.infoConteudo}>
-              {titleLoaded && translatedTitle ? (
-                <h1>{translatedTitle}</h1>
-              ) : (
-                <h1 className={`${styles.skeletonTitle} ${styles.loadingText}`}></h1>
-              )}
-              
-              {explanationLoaded && translatedExplanation ? (
-                <p>{translatedExplanation}</p>
-              ) : (
-                <div className={styles.skeletonText}>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
-                  <div className={`${styles.skeletonLine} ${styles.loadingText} ${styles.skeletonLineShorter}`}></div>
-                </div>
-              )}
-              
-              <p>BAIXAR IMAGEM</p>
-              <div className={styles.baixarImagem}>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                {titleLoaded && translatedTitle ? (
+                  <h1>{translatedTitle}</h1>
+                ) : (
+                  <h1 className={`${styles.skeletonTitle} ${styles.loadingText}`}></h1>
+                )}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                {explanationLoaded && translatedExplanation ? (
+                  <p>{translatedExplanation}</p>
+                ) : (
+                  <div className={styles.skeletonText}>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                    <div className={`${styles.skeletonLine} ${styles.loadingText} ${styles.skeletonLineShorter}`}></div>
+                  </div>
+                )}
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                BAIXAR IMAGEM
+              </motion.p>
+              <motion.div 
+                className={styles.baixarImagem}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
                 <button onClick={() => window.open(apod?.hdurl, "_blank")}>
                   <FontAwesomeIcon icon={faDownload} /> HD
                 </button>
                 <button onClick={() => window.open(apod?.url, "_blank")}>
                   <FontAwesomeIcon icon={faDownload} /> SD
                 </button>
-              </div>
-              <p>DIAS ANTERIORES</p>
-              <div className={styles.HubDias}>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                DIAS ANTERIORES
+              </motion.p>
+              <motion.div 
+                className={styles.HubDias}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
                 {previousApods.map((prev, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className={styles.diaAnterior}
                     onClick={() => fetchAPOD(prev.date)}
                     style={{ cursor: "pointer" }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
                   >
                     <div 
                       className={`${styles.DiasFoto} ${!previousImagesLoaded[index] ? styles.loading : ""}`} 
@@ -224,9 +280,9 @@ function APOD() {
                         <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
