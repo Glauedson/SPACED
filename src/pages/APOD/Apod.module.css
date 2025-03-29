@@ -69,6 +69,11 @@
     margin-bottom: 15px;
 }
 
+.infoConteudo > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+}
+
 .baixarImagem{
     display: flex;
     justify-content: center;
