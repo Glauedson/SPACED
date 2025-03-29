@@ -31,6 +31,11 @@ async function translateText(text) {
   for (const chunk of chunks) {
     const response = await fetch(`${MY_MEMORY_API_URL}?q=${encodeURIComponent(chunk)}&langpair=en|pt`)
     const data = await response.json()
+
+    if (data.responseStatus !== 200 || data.responseData.translatedText.includes("LIMIT REACHED")) {
+      return text
+    }
+
     translations.push(data.responseData.translatedText)
   }
 
@@ -147,7 +152,7 @@ function APOD() {
                   >
                     <div className={styles.DiasFoto} style={{ backgroundImage: `url(${prev?.url || ""})` }}></div>
                     <div className={styles.diaAnteriorInfo}>
-                      <p>{translatedPreviousTitles[index] || "Sem título"}</p>
+                      <p>{translatedPreviousTitles[index] || "Carregando..."}</p>
                       <p>
                         <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
                       </p>
