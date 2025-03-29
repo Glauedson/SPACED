@@ -79,17 +79,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 15px;
-    margin-bottom: 15px;
     width: 100%;
-    gap: 10px;
-    color: rgb(29, 28, 28);
+
+    color: rgb(255, 255, 255);
 }
 
 .AvisoDadosErro > p{
     font-size: clamp(0.7rem, 2vw, 1rem);
     margin-bottom: 15px;
-    background-color: rgb(255, 255, 255);
+    background-color: #131313;
     width: 93%;
     padding: 20px 15px;
     border-radius: 10px;
