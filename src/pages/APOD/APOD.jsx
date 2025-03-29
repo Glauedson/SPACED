@@ -50,10 +50,17 @@ function APOD() {
   const [translatedPreviousTitles, setTranslatedPreviousTitles] = useState([])
   const [mainImageLoaded, setMainImageLoaded] = useState(false)
   const [previousImagesLoaded, setPreviousImagesLoaded] = useState([])
+  const [titleLoaded, setTitleLoaded] = useState(false)
+  const [explanationLoaded, setExplanationLoaded] = useState(false)
 
   async function fetchAPOD(date = "") {
     try {
       setMainImageLoaded(false)
+      setTitleLoaded(false)
+      setExplanationLoaded(false)
+      setTranslatedTitle("")
+      setTranslatedExplanation("")
+      
       const response = await fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
       const data = await response.json()
       setApod(data)
@@ -67,15 +74,19 @@ function APOD() {
       if (data.title) {
         const translatedTitle = await translateText(data.title);
         setTranslatedTitle(translatedTitle);
+        setTitleLoaded(true);
       }
       if (data.explanation) {
         const translatedExplanation = await translateText(data.explanation);
         setTranslatedExplanation(translatedExplanation);
+        setExplanationLoaded(true);
       }
 
     } catch (error) {
       console.error("Erro ao buscar APOD:", error)
       setMainImageLoaded(true) // Considera carregado mesmo em caso de erro
+      setTitleLoaded(true)
+      setExplanationLoaded(true)
     }
   }
 
@@ -165,8 +176,26 @@ function APOD() {
           </div>
           <div className={styles.informacoes}>
             <div className={styles.infoConteudo}>
-              <h1>{translatedTitle || "Carregando..."}</h1>
-              <p>{translatedExplanation || "Carregando..."}</p>
+              {titleLoaded && translatedTitle ? (
+                <h1>{translatedTitle}</h1>
+              ) : (
+                <h1 className={`${styles.skeletonTitle} ${styles.loadingText}`}></h1>
+              )}
+              
+              {explanationLoaded && translatedExplanation ? (
+                <p>{translatedExplanation}</p>
+              ) : (
+                <div className={styles.skeletonText}>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText}`}></div>
+                  <div className={`${styles.skeletonLine} ${styles.loadingText} ${styles.skeletonLineShorter}`}></div>
+                </div>
+              )}
+              
               <p>BAIXAR IMAGEM</p>
               <div className={styles.baixarImagem}>
                 <button onClick={() => window.open(apod?.hdurl, "_blank")}>

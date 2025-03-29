@@ -214,6 +214,46 @@
     }
 }
 
+.loadingText {
+    position: relative;
+    overflow: hidden;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+  }
+  
+  .loadingText::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    animation: shine 1.5s infinite;
+  }
+  
+  .skeletonTitle {
+    height: 36px;
+    width: 70%;
+    margin-bottom: 55px;
+    background-color: #3a3a3a;
+  }
+  
+  .skeletonText {
+    margin-bottom: 15px;
+  }
+  
+  .skeletonLine {
+    height: 16px;
+    width: 100%;
+    margin-bottom: 12px;
+    background-color: #3a3a3a;
+  }
+  
+  .skeletonLineShorter {
+    width: 60%;
+  }
+
 @media (max-width: 970px) {
 
     .conteinerInicial{
