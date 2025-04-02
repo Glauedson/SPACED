@@ -49,14 +49,32 @@ function APOD() {
   const [translatedTitle, setTranslatedTitle] = useState("")
   const [translatedExplanation, setTranslatedExplanation] = useState("")
   const [translatedPreviousTitles, setTranslatedPreviousTitles] = useState([])
-  const [mainImageLoaded, setMainImageLoaded] = useState(false)
+  const [mainMediaLoaded, setMainMediaLoaded] = useState(false)
   const [previousImagesLoaded, setPreviousImagesLoaded] = useState([])
   const [titleLoaded, setTitleLoaded] = useState(false)
   const [explanationLoaded, setExplanationLoaded] = useState(false)
 
+  const getYouTubeThumbnail = (url) => {
+    if (!url) return null
+    
+    let videoId = ''
+    if (url.includes('watch?v=')) {
+      videoId = url.split('watch?v=')[1].split('&')[0]
+    } else if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]
+    } else if (url.includes('youtube.com/embed/')) {
+      videoId = url.split('youtube.com/embed/')[1]
+    }
+    
+    if (videoId) {
+      return `https://img.youtube.com/vi/${videoId}/0.jpg`
+    }
+    return null
+  }
+
   async function fetchAPOD(date = "") {
     try {
-      setMainImageLoaded(false)
+      setMainMediaLoaded(false)
       setTitleLoaded(false)
       setExplanationLoaded(false)
       setTranslatedTitle("")
@@ -64,27 +82,36 @@ function APOD() {
       
       const response = await fetch(`${API_URL}?api_key=${API_KEY}&date=${date}`)
       const data = await response.json()
+      
+      if (data.media_type === 'video' && data.url && data.url.includes('youtube')) {
+        data.thumbnail_url = getYouTubeThumbnail(data.url) || data.thumbnail_url
+      }
+      
       setApod(data)
 
-      const img = new Image()
-      img.onload = () => setMainImageLoaded(true)
-      img.onerror = () => setMainImageLoaded(true)
-      img.src = data.hdurl || data.url || ""
+      if (data.media_type === 'image') {
+        const img = new Image()
+        img.onload = () => setMainMediaLoaded(true)
+        img.onerror = () => setMainMediaLoaded(true)
+        img.src = data.hdurl || data.url || ""
+      } else {
+        setMainMediaLoaded(true)
+      }
 
       if (data.title) {
-        const translatedTitle = await translateText(data.title);
-        setTranslatedTitle(translatedTitle);
-        setTitleLoaded(true);
+        const translatedTitle = await translateText(data.title)
+        setTranslatedTitle(translatedTitle)
+        setTitleLoaded(true)
       }
       if (data.explanation) {
-        const translatedExplanation = await translateText(data.explanation);
-        setTranslatedExplanation(translatedExplanation);
-        setExplanationLoaded(true);
+        const translatedExplanation = await translateText(data.explanation)
+        setTranslatedExplanation(translatedExplanation)
+        setExplanationLoaded(true)
       }
 
     } catch (error) {
       console.error("Erro ao buscar APOD:", error)
-      setMainImageLoaded(true)
+      setMainMediaLoaded(true)
       setTitleLoaded(true)
       setExplanationLoaded(true)
     }
@@ -117,26 +144,58 @@ function APOD() {
       try {
         const results = await Promise.all(requests)
         const filteredResults = results.filter(apod => apod)
+        
+        filteredResults.forEach(item => {
+          if (item && item.media_type === 'video' && item.url && item.url.includes('youtube')) {
+            item.thumbnail_url = getYouTubeThumbnail(item.url) || item.thumbnail_url
+          }
+        })
+        
         setPreviousApods(filteredResults)
         setPreviousImagesLoaded(new Array(filteredResults.length).fill(false))
 
         filteredResults.forEach((apod, index) => {
-          const img = new Image()
-          img.onload = () => {
+          if (apod?.media_type === 'image') {
+            const img = new Image()
+            img.onload = () => {
+              setPreviousImagesLoaded(prev => {
+                const newState = [...prev]
+                newState[index] = true
+                return newState
+              })
+            }
+            img.onerror = () => {
+              setPreviousImagesLoaded(prev => {
+                const newState = [...prev]
+                newState[index] = true
+                return newState
+              })
+            }
+            img.src = apod?.url || ""
+          } else if (apod?.media_type === 'video' && apod?.thumbnail_url) {
+            const img = new Image()
+            img.onload = () => {
+              setPreviousImagesLoaded(prev => {
+                const newState = [...prev]
+                newState[index] = true
+                return newState
+              })
+            }
+            img.onerror = () => {
+              setPreviousImagesLoaded(prev => {
+                const newState = [...prev]
+                newState[index] = true
+                return newState
+              })
+            }
+            img.src = apod.thumbnail_url
+          } else {
             setPreviousImagesLoaded(prev => {
               const newState = [...prev]
               newState[index] = true
               return newState
             })
           }
-          img.onerror = () => {
-            setPreviousImagesLoaded(prev => {
-              const newState = [...prev]
-              newState[index] = true
-              return newState
-            })
-          }
-          img.src = apod?.url || ""
         })
 
         const translatedTitles = await Promise.all(
@@ -152,16 +211,116 @@ function APOD() {
     fetchPreviousAPODs()
   }, [])
 
+  const renderMainMedia = () => {
+    if (!apod) {
+      return <div className={`${styles.foto} ${styles.loading}`}></div>
+    }
+
+    if (apod.media_type === 'video') {
+      if (apod.url && apod.url.includes('youtube.com') || apod.url.includes('youtu.be')) {
+        let embedUrl = apod.url
+        if (apod.url.includes('watch?v=')) {
+          const videoId = apod.url.split('watch?v=')[1].split('&')[0]
+          embedUrl = `https://www.youtube.com/embed/${videoId}`
+        } else if (apod.url.includes('youtu.be')) {
+          const videoId = apod.url.split('youtu.be/')[1]
+          embedUrl = `https://www.youtube.com/embed/${videoId}`
+        }
+        
+        return (
+          <div className={styles.videoContainer}>
+            <iframe 
+              src={embedUrl} 
+              title={apod.title}
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              className={styles.videoFrame}
+            />
+          </div>
+        )
+      } else {
+        return (
+          <div className={styles.videoContainer}>
+            <video 
+              controls 
+              className={styles.videoFrame}
+              poster={apod.thumbnail_url}
+            >
+              <source src={apod.url} type="video/mp4" />
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+        )
+      }
+    } else {
+      return (
+        <div 
+          className={`${styles.foto} ${!mainMediaLoaded ? styles.loading : ""}`} 
+          style={{ backgroundImage: mainMediaLoaded && apod?.hdurl ? `url(${apod.hdurl})` : "none" }}
+        ></div>
+      )
+    }
+  }
+
+  const renderPreviousMedia = (prev, index) => {
+    if (!prev) {
+      return <div className={`${styles.DiasFoto} ${styles.loading}`}></div>
+    }
+
+    if (prev.media_type === 'video') {
+      const thumbnailUrl = prev.thumbnail_url || ''
+      
+      return (
+        <div 
+          className={`${styles.DiasFoto} ${!previousImagesLoaded[index] ? styles.loading : ""} ${styles.videoThumbnail}`} 
+          style={{ backgroundImage: previousImagesLoaded[index] && thumbnailUrl ? `url(${thumbnailUrl})` : "none" }}
+        >
+          <div className={styles.playIcon}>▶</div>
+        </div>
+      )
+    } else {
+      return (
+        <div 
+          className={`${styles.DiasFoto} ${!previousImagesLoaded[index] ? styles.loading : ""}`} 
+          style={{ backgroundImage: previousImagesLoaded[index] && prev?.url ? `url(${prev.url})` : "none" }}
+        ></div>
+      )
+    }
+  }
+
+  const renderDownloadButtons = () => {
+    if (!apod) return null
+    
+    if (apod.media_type === 'image') {
+      return (
+        <div className={styles.baixarImagem}>
+          <button onClick={() => window.open(apod?.hdurl, "_blank")}>
+            <FontAwesomeIcon icon={faDownload} /> HD
+          </button>
+          <button onClick={() => window.open(apod?.url, "_blank")}>
+            <FontAwesomeIcon icon={faDownload} /> SD
+          </button>
+        </div>
+      )
+    } else {
+      return (
+        <div className={styles.baixarImagem}>
+          <button onClick={() => window.open(apod?.url, "_blank")}>
+            <FontAwesomeIcon icon={faDownload} /> Vídeo Original
+          </button>
+        </div>
+      )
+    }
+  }
+
   return (
     <>
       <Header />
       <main>
         <div className={styles.conteinerInicial}>
           <div className={styles.fotoData}>
-            <div 
-              className={`${styles.foto} ${!mainImageLoaded ? styles.loading : ""}`} 
-              style={{ backgroundImage: mainImageLoaded && apod?.hdurl ? `url(${apod.hdurl})` : "none" }}
-            ></div>
+            {renderMainMedia()}
             <div className={styles.infoFoto}>
               <motion.div 
                 className={styles.data}
@@ -234,21 +393,15 @@ function APOD() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                BAIXAR IMAGEM
+                {apod?.media_type === 'image' ? 'BAIXAR IMAGEM' : 'ACESSAR VÍDEO'}
               </motion.p>
               <motion.div 
-                className={styles.baixarImagem}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <button onClick={() => window.open(apod?.hdurl, "_blank")}>
-                  <FontAwesomeIcon icon={faDownload} /> HD
-                </button>
-                <button onClick={() => window.open(apod?.url, "_blank")}>
-                  <FontAwesomeIcon icon={faDownload} /> SD
-                </button>
+                {renderDownloadButtons()}
               </motion.div>
 
               <motion.p
@@ -277,10 +430,7 @@ function APOD() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                   >
-                    <div 
-                      className={`${styles.DiasFoto} ${!previousImagesLoaded[index] ? styles.loading : ""}`} 
-                      style={{ backgroundImage: previousImagesLoaded[index] && prev?.url ? `url(${prev.url})` : "none" }}
-                    ></div>
+                    {renderPreviousMedia(prev, index)}
                     <div className={styles.diaAnteriorInfo}>
                       <p>{translatedPreviousTitles[index] || "Carregando..."}</p>
                       <p>
