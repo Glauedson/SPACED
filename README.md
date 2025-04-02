@@ -107,12 +107,12 @@ GET https://api.nasa.gov/planetary/apod
 ### 2. MyMemory
 
 **Descrição:**
- A API MyMemory oferece um serviço de tradução automática que permite traduzir textos entre diversos idiomas. No seu projeto, ela está sendo utilizada para traduzir o título e a descrição das imagens da NASA (APOD) para o português. Ela suporta traduções em tempo real e é amplamente usada por seu modelo de tradução baseado em memória de tradução, que oferece respostas rápidas e confiáveis.
+ A API MyMemory oferece um serviço de tradução automática que permite traduzir textos entre diversos idiomas. No projeto, ela está sendo utilizada para traduzir o título e a descrição das imagens da NASA (APOD) para o português. Ela suporta traduções em tempo real e é amplamente usada por seu modelo de tradução baseado em memória de tradução, que oferece respostas rápidas e confiáveis.
 
 <details>
   <summary> <img src="https://img.icons8.com/color/512/google-translate.png" width="17px"> Click here to translate </summary>
   <blockquote>
-    <p>Description: The MyMemory API provides an automatic translation service that allows text translation between multiple languages. In your project, it's used to translate NASA's Astronomy Picture of the Day (APOD) titles and descriptions into Portuguese. It offers real-time translations and is widely used for its translation memory-based model, providing fast and reliable responses.</p>
+    <p>Description: The MyMemory API provides an automatic translation service that allows text translation between multiple languages. In project, it's used to translate NASA's Astronomy Picture of the Day (APOD) titles and descriptions into Portuguese. It offers real-time translations and is widely used for its translation memory-based model, providing fast and reliable responses.</p>
   </blockquote>
 </details>
 
