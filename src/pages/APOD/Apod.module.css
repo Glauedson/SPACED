@@ -218,7 +218,24 @@
     display: flex;
     gap: 5px;
     align-items: center;
-    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-size: clamp(.8rem, 1.5vw, .9rem);
+    max-height: 67px;
+    align-items: start;
+}
+
+.tituloScrows {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.diaAnteriorInfo > p:last-child {
+    color: #ffffff9a;
+    font-size: clamp(.5 .5rem, 1.3vw, .5rem);
+    align-items: last baseline;
+    margin: 0;
 }
 
 .diaAnteriorInfo{
@@ -228,14 +245,6 @@
     padding: 10px 10px;
     min-height: 90px;
     justify-content: space-between;
-}
-
-.diaAnteriorInfo > p {
-    max-height: 60px ;
-    align-items: center;
-    display: flex;
-    word-wrap: break-word; /* Quebra palavras longas */
-  overflow-wrap: break-word
 }
 
 @keyframes pulse {

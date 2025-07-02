@@ -432,7 +432,7 @@ function APOD() {
                   >
                     {renderPreviousMedia(prev, index)}
                     <div className={styles.diaAnteriorInfo}>
-                      <p>{translatedPreviousTitles[index] || "Carregando..."}</p>
+                      <p className={styles.tituloScrows}>{translatedPreviousTitles[index] || "Carregando..."}</p>
                       <p>
                         <FontAwesomeIcon icon={faCalendarDays} /> {formatDate(prev?.date)}
                       </p>
