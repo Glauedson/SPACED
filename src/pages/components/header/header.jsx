@@ -38,7 +38,7 @@ function Header() {
       </header>
 
       <div className={styles.subHeader}>
-        <p>SITE AINDA ESTÁ NA VERSÃO BETA</p>
+        <p>SPACED ESTÁ DE VOLTA AO DESENVOLVIMENTO, EM BREVE MAIS NOVIDADES</p>
       </div>
 
       {/* Sidebar */}
@@ -114,7 +114,7 @@ function Header() {
           </div>
 
           <div className={styles.rodapeSidebar}>
-            <p>EM BREVE MAIS ATUALIZAÇÕES</p>
+            <p>NOVAS ATUALIZAÇÕES SÃO POR VIR</p>
           </div>
         </div>
       </div>
