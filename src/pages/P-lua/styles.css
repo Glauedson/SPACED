@@ -43,14 +43,12 @@ body::-webkit-scrollbar {
     width: 100%;
     max-height: 80dvh;
     aspect-ratio: 1/1;
-    background-image: url(../../assets/images/Moon_Surface_and_Earth.jpg);
     background-size: cover;
     -webkit-box-shadow: inset 0px 88px 88px -23px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 0px 88px 88px -23px rgba(0,0,0,0.75);
     box-shadow: inset 0px 84px 61px -26px rgba(0, 0, 0, 0.993),
     inset 0px -84px 61px -26px rgb(0, 0, 0);
 }
-
 
 .informacoesSemanais{
     background: rgba(255, 255, 255, 0.04);

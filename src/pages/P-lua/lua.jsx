@@ -1,10 +1,11 @@
-import Header from '../components/header/header'
-import LuaDias from '../components/LuaDias'
-import LuaHorarios from '../components/LuaHorarios'
+import Header from '../../components/header/header'
+import LuaDias from '../../components/LuaDias'
+import LuaHorarios from '../../components/LuaHorarios'
 import './styles.css'
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { backgrounds } from '../../assets/assets.js';
 
 function Lua() {
   return (
@@ -12,7 +13,7 @@ function Lua() {
       <Header />
       <main>
 
-        <div className="Lua">
+        <div className="Lua" style={{backgroundImage: `url(${backgrounds.moonSurfaceAndEarth})`,}}>
           <motion.div
             className="TextoLua"
             initial={{ opacity: 0, y: 50 }}

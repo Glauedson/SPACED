@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import Header from '../components/header/header'
+import Header from '../../components/header/header'
 import './styles.css'
-import LuaAPI from '../components/LuaAPI'
+import LuaAPI from '../../components/LuaAPI'
 import { Link } from "react-router-dom";
 
 function Home() {

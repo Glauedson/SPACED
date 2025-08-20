@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/home/index.jsx";
-import Lua from "./pages/lua/lua.jsx";
-import APOD from "./pages/APOD/APOD.jsx";
+import Home from "./pages/P-home/index.jsx";
+import Lua from "./pages/P-lua/lua.jsx";
+import APOD from "./pages/P-APOD/APOD.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

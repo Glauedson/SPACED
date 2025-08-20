@@ -109,6 +109,7 @@
 .infoConteudo > div > p{
     font-size: clamp(0.7rem, 2vw, 1rem);
     margin-bottom: 15px;
+    text-align: justify;
 }
 
 .infoConteudo > p{
@@ -199,6 +200,14 @@
    height: 100%;
    border-radius: 10px 10px 0px 0px;
    background-color: #131313;
+   transition: background-color 0.3s, scale 0.3s, box-shadow 0.3s;
+}
+
+.diaAnterior:hover{
+    background-color: #1a1a1a;
+    cursor: pointer;
+    scale: 1.02;
+    box-shadow: 0px 1px 20px 0px rgba(255, 255, 255, 0.37);
 }
 
 .DiasFoto{
@@ -337,6 +346,64 @@
     width: 60%;
   }
 
+  .Famosos > h3:first-child {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    padding-bottom: 10px;
+  }
+
+  .FamososCard {
+    display: flex;
+    background-color: #131313;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.3s, scale 0.3s, box-shadow 0.3s;
+  }
+
+  .FamososCard:hover {
+    background-color: #1a1a1a;
+    scale: 1.02;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.288);
+  }
+
+  .fotosFamosos {
+    display: flex;
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio: 2/1;
+  }
+
+  .fotoCapa {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .famosoInfo {
+    padding: 10px 20px;
+  }
+
+  .famosoNome {
+    font-weight: 600;
+    line-height: 0;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: clamp( .8rem, 1.5vw, .9rem );
+  }
+
+  .famosoOcupacao {
+    color: #666464;
+    font-size: clamp( .7rem, 1.5vw, .8rem );
+  }
+
+  .famosoApod {
+    font-size: clamp( .8rem, 1vw, .9rem );
+  }
+
+  .famosoInfo > p:last-child {
+    font-size: clamp( .8rem, 1vw, .9rem );
+  }
+
 @media (max-width: 970px) {
 
     .conteinerInicial{
@@ -373,6 +440,28 @@
         aspect-ratio: 1/1;
         background-size: cover;
     }
+
+  .fotosFamosos {
+    max-width: 10rem;
+    width: 100%;
+  }
+
+  .famosoNome {
+    font-size: clamp( .7rem, 1.5vw, .8rem );
+    margin-top: 10px;
+  }
+
+  .famosoOcupacao {
+    font-size: clamp( .6rem, 1.5vw, .7rem );
+  }
+
+  .famosoApod {
+    font-size: clamp( .7rem, 1vw, .8rem );
+  }
+
+  .famosoInfo > p:last-child {
+    font-size: clamp( .7rem, 1vw, .8rem );
+  }
 
     
 }
