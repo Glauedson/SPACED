@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
+
+body {
+  overflow: hidden;
+  background-color: #0D0F14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: auto;
+  margin: 0;
+}
+
+*{
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  border: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.luaConteiner{
+  margin-top: 35px;
+  width: clamp( 1000px , 70vw , 1900px );
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.luaDescricao{
+  width: 40%;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.luaDescricao > p {
+  font-size: clamp( 15px, 1.4vw, 23px);
+  color: #ffffff;
+}
+
+.luaDescricao > h1 {
+  font-size: clamp(30px, 6vw, 128px);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.luaDescricao > a {
+  padding: 20px 0px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.luaDescricao > a::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.luaDescricao > a:hover::after{
+  transform: scale(4);
+}
+
+.luaDescricao > a:hover{
+  border-color: #666666;
+  background: #292929;
+}
+
+.luaBanner{
+  border-radius: 18px 18px 0px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.luaBannerTopo{
+  background-color: #0D0F14;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  width: clamp(300px, 50vw, 650px);
+  aspect-ratio: 1.6/1;
+  border-radius: 15px;
+  box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.144);
+}
+
+.lua{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+@keyframes girarLua {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.mapaLua {
+  background-image: url(../../assets/images/mapa-da-lua.jpg);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  animation: girarLua 20s linear infinite;
+  box-shadow: inset 90px 0px 90px 0px rgb(0, 0, 0),
+              8px 0px 10px 0px rgba(255, 255, 255, 0.11);
+}
+
+.infoLua{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(190, 187, 187);
+  font-size: clamp(10px, 1.9vw, 20px);
+  line-height: 1;
+  text-align: center;
+  word-break: break-word;
+}
+
+.infoLua > p:last-child{
+  font-size: clamp(40px, 5vw, 40px);
+  font-weight: bolder;
+  color: white;
+}
+
+.conteinerApod{
+  background-color: #666464;
+  background-image: url(../../assets/images/ApodBanner.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 50px 0px 50px 0px;
+  width: 100%;
+  aspect-ratio: 32/10;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudoInterno{
+  width: clamp( 1000px , 70vw , 1900px );
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+}
+
+.conteinerTextoApod{
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  padding: 40px 40px 40px 40px;
+  width: 40%;
+  min-height: 300px;
+  height: 80%;
+  max-height: 600px;
+  color: #ffffff;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.tituloAPOD > p{
+  font-size: clamp(15px, 1.4vw, 20px);
+}
+
+.tituloAPOD > h1{
+  font-size: clamp(30px, 2.5vw, 45px);
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.conteinerTextoApod > a {
+  padding: 20px 0px;
+  background-color: #ffffff;
+  color: #131212;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.conteinerTextoApod > a::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.conteinerTextoApod > a:hover::after{
+  transform: scale(4);
+}
+
+.conteinerTextoApod > a:hover{
+  border-color: #181717;
+  background: #181717;
+  color: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 1060px) {
+  
+  .luaConteiner{
+    flex-direction: column;
+    width: 90%;
+    background-color: rgb(252, 252, 252);
+    align-items: center;
+    border-radius: 8px 8px 15px 15px;
+  }
+
+  .luaBannerTopo{
+    width: 100%;
+    aspect-ratio: 2.5/1;
+    height: auto;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 
+    0px -4px 4px rgba(0, 0, 0, 0.25), /* Sombra preta acima */
+    0px 4px 4px rgba(245, 244, 244, 0.25);
+    background:  
+    linear-gradient(rgba(0, 0, 0, 0.897), rgba(8, 8, 8, 0.5)),
+    url('../../assets/images/space-stars-background-abstract-stardust-600nw-2318734487.webp');
+  }
+
+  .luaDescricao{
+    width: 93%;
+    gap: 15px;
+    height: auto;
+    
+  }
+
+  .luaDescricao > h1 {
+    color: #26272b;
+    margin-top: 15px;
+    
+  }
+
+  .luaDescricao > P {
+    font-size: clamp(11px, 2vw, 17px);
+    color: #0D0F14;
+    
+  }
+
+  .luaDescricao > a{
+    width: 100%;
+    height: auto;
+    background-color: #0D0F14;
+    color: white;
+    font-size: clamp(11px, 2vw, 17px);
+    margin-top: 9px;
+  }
+
+  .luaBanner{
+    width: 100%;
+  }
+
+  .lua{
+   padding: 20px;
+  }
+
+  .infoLua{
+    font-size: clamp(10px, 3vw, 30px);
+  }
+  
+  .infoLua > p:last-child{
+    font-size: clamp(10px, 5vw, 40px);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.445), 0 0 3px rgba(255, 255, 255, 0.527), 0 0 3px rgba(255, 255, 255, 0.39);
+  }
+
+  .conteudoInterno{
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 646px){
+
+  .conteinerTextoApod{
+    width: 100%;
+    padding: 20px;
+  }
+
+  .tituloAPOD > p{
+    font-size: clamp(11px, 2vw, 17px);
+  }
+  
+  .tituloAPOD > h1{
+    font-size: clamp(20px, 3vw, 45px);
+  }
+
+  .conteinerTextoApod > a{
+    font-size: clamp(11px, 2vw, 17px);
+  }
+
+}

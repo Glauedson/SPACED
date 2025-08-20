@@ -1,0 +1,467 @@
+.conteinerInicial{
+    width: 100vw;
+    display: flex;
+}
+
+.fotoData{
+    width: 40vw;
+}
+
+.foto{
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: rgb(139, 137, 137);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 50px 0px;
+}
+
+/* Estilos para o container de vídeo */
+.videoContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #000;
+    border-radius: 0 0 50px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.videoFrame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+}
+
+/* Estilos para miniaturas de vídeo */
+.videoThumbnail {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.playIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.infoFoto{
+    display: flex;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.infoFoto > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #131313;
+    border-radius: 10px;
+    aspect-ratio: 16/7;
+    flex: 1;
+    line-height: 1;
+    margin: 0;
+}
+
+.infoFoto > div > h3{
+    font-weight: bold;
+    font-size: clamp(0.8rem, 3vw, 1.6rem);
+    font-weight: bold;
+}
+
+.infoFoto > div > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    color: rgb(121, 119, 119);
+}
+
+.informacoes{
+    width: 60vw;
+}
+
+.infoConteudo{
+    padding: 30px 70px;
+}
+
+.infoConteudo > div > h1{
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.infoConteudo > div > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.infoConteudo > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+}
+
+.AvisoDadosErro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.AvisoDadosErro > p{
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 15px;
+    background-color: #131313;
+    width: 93%;
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
+.baixarImagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.baixarImagem button{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.baixarImagem button:hover{
+    background-color: rgb(192, 190, 190);
+    color: white;
+}
+
+.HubDias{
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    --sb-track-color: #0f0f0f;
+    --sb-thumb-color: #fdfdfd;
+    --sb-size: 5px;
+}
+
+.HubDias::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+.HubDias::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 1px;
+}
+
+.HubDias::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 1px;
+}
+
+.diaAnterior{
+   width: 100%;
+   max-width: 390px;
+   min-width: 130px;
+   height: 100%;
+   border-radius: 10px 10px 0px 0px;
+   background-color: #131313;
+   transition: background-color 0.3s, scale 0.3s, box-shadow 0.3s;
+}
+
+.diaAnterior:hover{
+    background-color: #1a1a1a;
+    cursor: pointer;
+    scale: 1.02;
+    box-shadow: 0px 1px 20px 0px rgba(255, 255, 255, 0.37);
+}
+
+.DiasFoto{
+    background-color: white;
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.75);
+}
+
+.diaAnteriorInfo > p {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: clamp(.8rem, 1.5vw, .9rem);
+    max-height: 67px;
+    align-items: start;
+}
+
+.tituloScrows {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.diaAnteriorInfo > p:last-child {
+    color: #ffffff9a;
+    font-size: clamp(.5 .5rem, 1.3vw, .5rem);
+    align-items: last baseline;
+    margin: 0;
+}
+
+.diaAnteriorInfo{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 10px;
+    min-height: 90px;
+    justify-content: space-between;
+}
+
+@keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.6;
+    }
+}
+  
+.loading {
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a !important;
+    background-image: none !important;
+}
+  
+.loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: shine 1.5s infinite;
+}
+  
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 30, 30, 0.5);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+  
+@keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+}
+
+.loadingText {
+    position: relative;
+    overflow: hidden;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+  }
+  
+  .loadingText::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    animation: shine 1.5s infinite;
+  }
+  
+  .skeletonTitle {
+    height: 36px;
+    width: 70%;
+    margin-bottom: 55px;
+    background-color: #3a3a3a;
+  }
+  
+  .skeletonText {
+    margin-bottom: 15px;
+  }
+  
+  .skeletonLine {
+    height: 16px;
+    width: 100%;
+    margin-bottom: 12px;
+    background-color: #3a3a3a;
+  }
+  
+  .skeletonLineShorter {
+    width: 60%;
+  }
+
+  .Famosos > h3:first-child {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    padding-bottom: 10px;
+  }
+
+  .FamososCard {
+    display: flex;
+    background-color: #131313;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.3s, scale 0.3s, box-shadow 0.3s;
+  }
+
+  .FamososCard:hover {
+    background-color: #1a1a1a;
+    scale: 1.02;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.288);
+  }
+
+  .fotosFamosos {
+    display: flex;
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio: 2/1;
+  }
+
+  .fotoCapa {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .famosoInfo {
+    padding: 10px 20px;
+  }
+
+  .famosoNome {
+    font-weight: 600;
+    line-height: 0;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: clamp( .8rem, 1.5vw, .9rem );
+  }
+
+  .famosoOcupacao {
+    color: #666464;
+    font-size: clamp( .7rem, 1.5vw, .8rem );
+  }
+
+  .famosoApod {
+    font-size: clamp( .8rem, 1vw, .9rem );
+  }
+
+  .famosoInfo > p:last-child {
+    font-size: clamp( .8rem, 1vw, .9rem );
+  }
+
+@media (max-width: 970px) {
+
+    .conteinerInicial{
+        flex-direction: column;
+    }
+
+    .fotoData{
+        width: 100vw;
+    }
+
+    .foto{
+        aspect-ratio: 16/9;
+    }
+
+    .videoContainer {
+        aspect-ratio: 16/9;
+    }
+
+    .informacoes{
+        width: 100vw;
+    }
+
+    .infoConteudo{
+        padding: 0px 20px;
+    }
+
+    .AvisoDadosErro > p{
+        width: 88%; 
+    }
+}
+
+@media (max-width: 500px) { 
+    .foto{
+        aspect-ratio: 1/1;
+        background-size: cover;
+    }
+
+  .fotosFamosos {
+    max-width: 10rem;
+    width: 100%;
+  }
+
+  .famosoNome {
+    font-size: clamp( .7rem, 1.5vw, .8rem );
+    margin-top: 10px;
+  }
+
+  .famosoOcupacao {
+    font-size: clamp( .6rem, 1.5vw, .7rem );
+  }
+
+  .famosoApod {
+    font-size: clamp( .7rem, 1vw, .8rem );
+  }
+
+  .famosoInfo > p:last-child {
+    font-size: clamp( .7rem, 1vw, .8rem );
+  }
+
+    
+}
