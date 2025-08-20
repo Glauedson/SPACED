@@ -3,8 +3,10 @@ import Header from '../../components/header/header'
 import './styles.css'
 import LuaAPI from '../../components/LuaAPI'
 import { Link } from "react-router-dom";
+import { setTitlePage } from '../../utils/setTitlePage'
 
 function Home() {
+  setTitlePage("")
   return (
     <>
       <Header />

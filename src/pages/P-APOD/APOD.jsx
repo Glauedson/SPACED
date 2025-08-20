@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendarDays, faDownload } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import profile from "../../assets/images/profile.png"
+import{ setTitlePage } from "../../utils/setTitlePage"
 
 const API_KEY = "53VVGWPFSAqtWUBMXGKDgF6ZOJuCWEfdfLyzve0k"
 const API_URL = "https://api.nasa.gov/planetary/apod"
@@ -134,6 +135,8 @@ function APOD() {
   const [titleLoaded, setTitleLoaded] = useState(false)
   const [explanationLoaded, setExplanationLoaded] = useState(false)
   const [isFromFamosos, setIsFromFamosos] = useState(false) // Flag para saber se veio dos famosos
+
+  setTitlePage(translatedTitle)
 
   const getYouTubeThumbnail = (url) => {
     if (!url) return null

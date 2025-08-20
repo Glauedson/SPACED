@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { moonPhases } from '../assets/assets.js' 
+import { setTitlePage } from '../utils/setTitlePage.js'
+import { s } from 'framer-motion/client'
 
 const MoonForecast = () => {
   const [previsao, setPrevisao] = useState(null)
@@ -77,7 +79,7 @@ const MoonForecast = () => {
         const dadosFormatados = data.daily.data.slice(0, 7).map((dia) => {
           const moonPhaseValue = dia.moonPhase || 0
           const faseLua = mapearFaseLua(moonPhaseValue)
-          
+
           return {
             date: dia.time, 
             phase: faseLua,
@@ -136,6 +138,7 @@ const MoonForecast = () => {
     <>
       {previsao ? (
         <div className="caixaDiasSemana">
+          {setTitlePage(previsao[0].phase)}
           {previsao.map((dia, index) => (
             <motion.div
               key={index}
@@ -155,7 +158,7 @@ const MoonForecast = () => {
               <div className="sombra"></div>
               <div className="dia"><p>{formatarData(dia.date)}</p></div>
               <div className="faseLua"><p>{dia.phase}</p></div>
-              
+
             </motion.div>
           ))}
         </div>
