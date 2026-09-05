@@ -1,0 +1,64 @@
+{
+  "name": "spaced",
+  "description": "Explorando o universo através de dados, imagens e conhecimento científico. Um projeto independente criado para tornar a astronomia mais acessível, interativa e interessante.",
+  "author": {
+    "name": "Glauedson - Edson",
+    "email": "glauedson.dev@gmail.com",
+    "links": {
+      "github": "https://github.com/Glauedson",
+      "linkedin": "https://www.linkedin.com/in/glauedson-carlos-89875b258/",
+      "bahance": "https://www.behance.net/Glauedson"
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/Glauedson/SPACED",
+    "directory": "spaced",
+    "type": "git"
+  },
+  "keywords": [
+    "NASA",
+    "ISS",
+    "APOD",
+    "CycleCals",
+    "Open-Notify",
+    "Moon"
+  ],
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "jest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@tailwindcss/vite": "^4.3.3",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.33.0",
+    "motion": "^13.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.3",
+    "react-use-measure": "^2.1.7",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.5.10",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "jest": "^30.4.2",
+    "oxlint": "^1.75.0",
+    "storybook": "^10.5.10",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  }
+}

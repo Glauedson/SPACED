@@ -1,0 +1,12 @@
+@utility description {
+  font-family: var(--font-geist);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+@utility title {
+  font-family: var(--font-syne);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}

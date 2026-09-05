@@ -1,8 +1,8 @@
-# <img src="src/assets/icons/logo1x1.png" width="23px"> SPACED
+# <img src="spaced/src/assets/img/Logo 1x1.svg" width="33px"> SPACED
 
 <div align="center" style="padding: 20px 0" >
 
-<img src= "src/assets/icons/SPACED-02.png" width=290px>
+<img src= "spaced/src/assets/img/Logo.svg" width=290px>
 </div>
 
 Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi um trabalho da faculdade, apenas uma ideia que eu tive depois que encontrei as **APIs gratuitas** da NASA. Após analisar todos os dados, tive a vontade de desenvolver este site.
@@ -28,7 +28,7 @@ Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi u
   </blockquote>
 </details>
 
-## <img src="src/assets/icons/logo1x1.png" width=19 > Topicos
+## <img src="spaced/src/assets/img/Logo 1x1.svg" width=23 > Topicos
 
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Screenshots Do Projeto](#screenshots-do-projeto)
@@ -37,7 +37,7 @@ Site desenvolvido usando APIs de astronomia da **NASA**, esse projeto não foi u
 - [Licença](#licença)
 - [Contato](#contato)
 
-## <img src="src/assets/icons/logo1x1.png" width=19 > Descrição do Projeto
+## <img src="spaced/src/assets/img/Logo 1x1.svg" width=23 > Descrição do Projeto
 
 Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a descrição do projeto.
 
@@ -48,7 +48,7 @@ Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a 
   </blockquote>
 </details>
 
-## <img src="src/assets/icons/logo1x1.png" width=19 > Screenshots do Projeto
+## <img src="spaced/src/assets/img/Logo 1x1.svg" width=23 > Screenshots do Projeto
 
 🚧 Em Breve será atualizado
 
@@ -59,19 +59,20 @@ Assim que todas as funcionalidades do projeto forem definidas, irei atualizar a 
   </blockquote>
 </details>
 
-## <img src="src/assets/icons/logo1x1.png" width=19 > Tecnologias Utilizadas
+## <img src="spaced/src/assets/img/Logo 1x1.svg" width=23 > Tecnologias Utilizadas
 
 - **Frontend**:
 
-  [![My Skills](https://skillicons.dev/icons?i=react,vite,css)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=react,ts,tailwind)](https://skillicons.dev)
 
 - **APIs**:
   
   - APOD - **NASA**
-  - MyMemory 
+  - CycloCals
+  - Open-Notify
   
 
-## <img src="src/assets/icons/logo1x1.png" width=19 > Endpoints das APIs
+## <img src="spaced/src/assets/img/Logo 1x1.svg" width=23 > Endpoints das APIs
 
 ### 1. APOD (  Astronomy Picture of the Day )
 
@@ -104,47 +105,6 @@ GET https://api.nasa.gov/planetary/apod
 }
 ```
 
-### 2. MyMemory
-
-**Descrição:**
- A API MyMemory oferece um serviço de tradução automática que permite traduzir textos entre diversos idiomas. No projeto, ela está sendo utilizada para traduzir o título e a descrição das imagens da NASA (APOD) para o português. Ela suporta traduções em tempo real e é amplamente usada por seu modelo de tradução baseado em memória de tradução, que oferece respostas rápidas e confiáveis.
-
-<details>
-  <summary> <img src="https://img.icons8.com/color/512/google-translate.png" width="17px"> Click here to translate </summary>
-  <blockquote>
-    <p>Description: The MyMemory API provides an automatic translation service that allows text translation between multiple languages. In project, it's used to translate NASA's Astronomy Picture of the Day (APOD) titles and descriptions into Portuguese. It offers real-time translations and is widely used for its translation memory-based model, providing fast and reliable responses.</p>
-  </blockquote>
-</details>
-
-**Endpoint:** ``/get``
-
-**Exemplo de Requisição:**
-```http
-GET https://api.mymemory.translated.net/get?q={texto_a_ser_traduzido}&langpair=en|pt
-```
-
-**Exemplo de Resposta:**
-```json
-{
-  "responseData": {
-    "translatedText": "O asteroide Bennu contém os blocos de construção da vida"
-  },
-  "quotaFinished": false,
-  "matchRate": 100
-}
-```
-
-**Parâmetros:**
-- ``q``: Texto que será traduzido.
-- ``langpair`` Par de idiomas para tradução, no formato ``idioma_origem|idioma_destino.`` Exemplo: ``en|pt`` para traduzir de inglês para português.
-
-
-> [!IMPORTANT]
->
-> A resposta contém o texto traduzido no campo ``translatedText.``
->
-> A API também inclui informações sobre o uso da quota de traduções (campo ``quotaFinished``), o que pode ser útil para saber quando você atingiu o limite de requisições.
-
 ## 📄 Licença
 
 Este projeto não possui uma licença definida. Sinta-se livre para utilizar e modificar o código conforme necessário.
@@ -168,4 +128,4 @@ Para dúvidas ou sugestões, entre em contato:
 </details>
 
 - **Nome**: Glauedson Carlos Rodrigues
-- **Email**: (gluedson18s@gmail.com)
+- **Email**: (gluedson.dev@gmail.com)

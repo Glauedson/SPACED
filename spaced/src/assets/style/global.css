@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
+
+@import "tailwindcss";
+@import "./typography.css";
+
+@theme {
+  --font-geist: 'Geist', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+
+  --color-primary: #3B82F6;
+  --color-secondary: #ffffff;
+  --color-background: #07080A;
+
+  /* Card */
+  --color-border: #1E232B;
+  --color-card-primary: #111317;
+  --color-card-secondary: #e5e7eb;
+
+  /* Text colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #94A3B8;
+}
+
+@keyframes moon-rotate {
+  from { background-position: 0 0; }
+  to   { background-position: 200% 0; }
+}
+
+.moon-rotate {
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: moon-rotate 20s linear infinite;
+}
