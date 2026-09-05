@@ -1,5 +1,5 @@
 // Images
-export { default as logo } from "./img/logo.svg"
+export { default as logo } from "./img/Logo.svg"
 export { default as logo1x1 } from "./img/Logo 1x1.svg"
 export { default as BannerHome } from "./img/banner-home.avif"
 export { default as BannerMoon } from "./img/banner-Moon.avif"
