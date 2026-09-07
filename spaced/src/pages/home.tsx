@@ -1,15 +1,21 @@
 import Navbar from "@components/layout/navbar/navbar";
-import { changePageName } from "@utils/changePageName";
+import { changePageDescription, changePageName } from "@/utils/meta";
 import Header from "@components/layout/header/header";
 import Footer from "@components/layout/footer/footer";
 import { BannerHome, BannerMoon, BannerApod, BannerIss } from "@assets/index";
 import { Card } from "@components/ui/card/card";
 import { Image, Moon, Satellite } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
 
-  changePageName("SPACED");
+  useEffect(() => {
+  changePageName("SPACED - Explore o universo em tempo real");
+  changePageDescription(
+    "Descubra os fenômenos, corpos celestes e missões que ajudam a explicar o universo. A SPACED reúne informações astronômicas, imagens e dados reais para tornar a exploração espacial mais acessível e interativa."
+  )
+}, [])
 
   // Topics
   const Topics = [

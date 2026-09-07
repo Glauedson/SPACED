@@ -2,7 +2,7 @@ import { Section } from "@components/layout/section/section";
 import Footer from "@components/layout/footer/footer";
 import Header from "@components/layout/header/header";
 import Navbar from "@components/layout/navbar/navbar";
-import { changePageName } from "@utils/changePageName";
+import { changePageName, changePageDescription } from "@/utils/meta";
 import Badge from "@components/ui/badge/badge";
 import { Card } from "@components/ui/card/card";
 import { useEffect, useMemo, useState } from "react";
@@ -30,7 +30,8 @@ export default function Lua() {
             try {
                 setLoading(true);
                 const data = await getMoonData();
-                changePageName(`${data.current.name} - SPACED`);
+                changePageName(`${data.current.name} - ${data.current.illuminationPercent}% , ${data.current.ageDays} Dias, ${data.current.distanceKm.toFixed(2)} km | SPACED`);
+                changePageDescription("Descubra a fase atual da Lua, sua porcentagem de iluminação, idade lunar e distância em relação à Terra.");
                 setMoonData(data);
             } catch (error) {
                 console.error("Erro ao buscar dados da Lua:", error);
