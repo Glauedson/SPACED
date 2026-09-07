@@ -1,5 +1,5 @@
 import Navbar from "@components/layout/navbar/navbar";
-import { changePageDescription, changePageName } from "@/utils/meta";
+import { changePageDescription, changePageName, changeOpenGraph } from "@/utils/meta";
 import Header from "@components/layout/header/header";
 import Footer from "@components/layout/footer/footer";
 import { BannerHome, BannerMoon, BannerApod, BannerIss } from "@assets/index";
@@ -15,6 +15,14 @@ export default function Home() {
   changePageDescription(
     "Descubra os fenômenos, corpos celestes e missões que ajudam a explicar o universo. A SPACED reúne informações astronômicas, imagens e dados reais para tornar a exploração espacial mais acessível e interativa."
   )
+
+  changeOpenGraph({
+    title: "SPACED — Explore o Universo",
+    description:
+      "Explore o universo com informações astronômicas, imagens da NASA, fases da Lua, a Estação Espacial Internacional e muito mais.",
+    image: "https://super.abril.com.br/wp-content/uploads/2026/07/SI_objeto-celeste_site.jpg?quality=70&strip=info&resize=1200,630&crop=1",
+    url: "https://spaced-sandy.vercel.app/",
+  });
 }, [])
 
   // Topics
