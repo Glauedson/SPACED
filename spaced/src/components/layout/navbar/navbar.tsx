@@ -23,7 +23,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between md:grid md:grid-cols-3 max-w-7xl mx-auto">
           {/* Logo */}
           <Link to="/" className="flex items-center md:col-start-1 md:justify-self-start">
-            <img src={logo} alt="Cosmos" className="w-[150px] h-auto" />
+            <img 
+              src={logo} 
+              alt="Logo SPACED" 
+              className="w-[150px] h-auto" />
           </Link>
 
           {/* Links - desktop */}
@@ -74,7 +77,10 @@ export default function Navbar() {
           <div className="flex items-center justify-between px-6 py-3 border-b border-border bg-background
                           rounded-t-2xl">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2">
-              <img src={logo} alt="Cosmos" className="w-[110px] h-auto" />
+              <img 
+                src={logo} 
+                alt="Logo SPACED" 
+                className="w-[110px] h-auto" />
             </Link>
             <button
               type="button"
