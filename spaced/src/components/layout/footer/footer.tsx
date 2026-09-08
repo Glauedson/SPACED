@@ -59,7 +59,10 @@ export default function Footer(): React.ReactElement {
           {/* Logo placeholder + description */}
           <div className="max-w-sm">
             <div className="mb-4 flex h-10 w-40 items-center justify-start">
-              <img src={logo} />
+              <img 
+                src={logo} 
+                alt="Logo SPACED"
+              />
             </div>
 
             <p className="description leading-relaxed">
@@ -73,9 +76,9 @@ export default function Footer(): React.ReactElement {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:gap-16">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <h3 className="mb-4 font-geist text-xs font-semibold tracking-wider text-text-primary">
+                <h2 className="mb-4 font-geist text-xs font-semibold tracking-wider text-text-primary">
                   {column.title}
-                </h3>
+                </h2>
                 <ul className="space-y-3">
                   {column.links.map((link) => (
                     <li key={link.label}>
